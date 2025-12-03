@@ -156,6 +156,15 @@ const translations = {
             comunidad: "Comunidad",
             comunidadDesc: "Propón el próximo campus - ¿dónde te necesitamos?"
         },
+        // Noticias Section
+        noticias: {
+            title: "En los Medios",
+            subtitle: "Noticias y anuncios recientes",
+            spotifyTag: "Alianza Estratégica",
+            spotifyTitle: "Spotify se une a Good Bunny Foundation y Rimas Foundation para lanzar The Mobile Academy",
+            spotifyQuote: '"Como parte de nuestro compromiso de larga data con apoyar a la próxima generación de músicos y profesionales de la industria, Spotify se asocia con Good Bunny Foundation y Rimas Foundation para lanzar The Mobile Academy, que llevará recursos musicales, capacitación y becas dedicadas a estudiantes en todo Puerto Rico."',
+            readMore: "Leer artículo completo"
+        },
         // Hitos Section
         hitos: {
             title: "Próximos Hitos",
@@ -345,6 +354,15 @@ const translations = {
             alumniDesc: "Return as a mentor, close the circle",
             comunidad: "Community",
             comunidadDesc: "Propose the next campus - where do we need you?"
+        },
+        // Noticias Section
+        noticias: {
+            title: "In the Media",
+            subtitle: "Recent news and announcements",
+            spotifyTag: "Strategic Partnership",
+            spotifyTitle: "Spotify partners with Good Bunny Foundation and Rimas Foundation to launch The Mobile Academy",
+            spotifyQuote: '"Additionally, as part of our long-standing commitment to supporting the next generation of musicians and industry professionals, Spotify is partnering with Good Bunny Foundation and Rimas Foundation to launch The Mobile Academy, which will bring musical resources, training, and dedicated scholarships to students across Puerto Rico."',
+            readMore: "Read full article"
         },
         // Hitos Section
         hitos: {
