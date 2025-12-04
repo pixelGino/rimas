@@ -2,6 +2,7 @@
 
 const translations = {
     es: {
+        pageTitle: "Fundación Rimas",
         // Navigation
         nav: {
             inicio: "Inicio",
@@ -35,6 +36,35 @@ const translations = {
             pilar4Text: "Seguimiento de resultados e impacto verificable",
             bottomText: "Trabajamos directamente con jóvenes en el sistema de justicia juvenil en Puerto Rico,",
             bottomTextBold: "creando oportunidades reales de transformación y desarrollo."
+        },
+        // Dashboard Section
+        dashboard: {
+            title: "Impacto Medible",
+            subtitle: "Datos en tiempo real de nuestra intervención",
+            updated: "Actualizado: Oct 2025",
+            retentionTitle: "Retención Global",
+            retentionAvg: "Promedio",
+            retentionText: "Consistentemente superior al promedio del sistema (45%)",
+            growthTitle: "Crecimiento de Participantes",
+            growthStart: "Inicio",
+            investmentTitle: "Inversión Directa",
+            scholarships: "Becas Educativas",
+            equipment: "Equipamiento",
+            mentors: "Mentores",
+            totalInvested: "Total invertido este trimestre:"
+        },
+        // Showcase Section
+        showcase: {
+            title: "Listen to the <span class='text-transparent bg-clip-text bg-gradient-to-r from-rimas-cyan to-white'>Future</span>",
+            subtitle: "Producciones originales de nuestros estudiantes",
+            nowPlaying: "Reproduciendo Ahora",
+            track1: "Sueños de Barrio",
+            artist1: "Carlos M. • 17 años",
+            track2: "Ritmo del Cambio",
+            artist2: "Ana S. • 16 años",
+            track3: "Voces del Mañana",
+            artist3: "Grupo Taller • Bayamón",
+            cta: "Escuchar Playlist Completa"
         },
         // Historia Section
         historia: {
@@ -93,22 +123,19 @@ const translations = {
         // Destrezas Section
         destrezas: {
             title: "Destrezas Transferibles",
-            subtitle: "Lo que aprendes aquí, te sirve en cualquier lugar",
-            networking: "Networking",
-            networkingDesc: "Aplicable en cualquier industria",
-            presupuesto: "Presupuesto",
-            presupuestoDesc: "Finanzas personales y profesionales",
-            branding: "Branding Personal",
-            brandingDesc: "Desarrollo de carrera",
-            eventos: "Organización de Eventos",
-            eventosDesc: "Gestión de proyectos",
-            quote: '"Un buen contable en la música es un buen contable en cualquier industria"'
+            subtitle: "Más allá de la industria del entretenimiento",
+            card1Title: "Pensamiento Crítico",
+            card1Text: "Resolución de problemas complejos en producción y logística.",
+            card2Title: "Liderazgo",
+            card2Text: "Gestión de equipos y toma de decisiones bajo presión.",
+            card3Title: "Comunicación",
+            card3Text: "Expresión efectiva de ideas y negociación."
         },
         // Subvenciones Section
         subvenciones: {
             title: "Programa de Subvenciones",
-            amount: "$25,000+",
-            amountDesc: "Otorgados este trimestre",
+            subtitle: "Impulsando el desarrollo de talento individual",
+            cardTitle: "Becas Disponibles",
             atletas: "Atletas",
             atletasDesc: "Apoyo a deportistas destacados",
             musicos: "Músicos",
@@ -117,7 +144,7 @@ const translations = {
             artistasDesc: "Inversión en talento creativo",
             processTitle: "Proceso Transparente y Basado en Mérito",
             processDesc: "Todas nuestras subvenciones siguen criterios claros de evaluación",
-            nextCall: "Próxima convocatoria: Enero 2026"
+            ctaButton: "Solicitar Información"
         },
         // Alianzas Section
         alianzas: {
@@ -141,36 +168,32 @@ const translations = {
             partner7: "Universidad de Puerto Rico",
             partner8: "Junte de Plenerxs"
         },
-        // Movimiento Section
-        movimiento: {
-            title: "Únete al Movimiento",
-            subtitle: "Hay múltiples maneras de ser parte del cambio",
-            nacionales: "Fundaciones Nacionales",
-            nacionalesDesc: "Invierte en el único modelo probado de justicia juvenil en PR",
-            empresas: "Empresas Locales",
-            empresasDesc: "Adopta un campus, transforma una comunidad",
-            profesionales: "Profesionales",
-            profesionalesDesc: "Comparte tu expertise, inspira futuros",
-            alumni: "Alumni",
-            alumniDesc: "Regresa como mentor, cierra el círculo",
-            comunidad: "Comunidad",
-            comunidadDesc: "Propón el próximo campus - ¿dónde te necesitamos?"
-        },
+
         // Hitos Section
         hitos: {
             title: "Próximos Hitos",
-            enero: "Enero 2026",
-            eneroDesc: "Apertura Campus Caguas",
-            accountability: "Accountability & Transparencia",
-            accountabilityDesc: "Publicación trimestral de métricas: asistencia, retención, progreso académico, desarrollo de destrezas",
-            academia: "Academia Móvil",
-            academiaDesc: "Programas pop-up llevando el vagón estudio a comunidades nuevas"
+            hito1Title: "Lanzamiento Álbum Villalba",
+            hito1Text: "Distribución digital y showcase en vivo",
+            hito2Title: "Expansión Programa Residencias",
+            hito2Text: "5 nuevas becas para talento emergente",
+            hito3Title: "Lanzamiento The Mobile Academy",
+            hito3Text: "Recursos musicales y becas con Spotify y Good Bunny Foundation"
+        },
+        // News Section
+        news: {
+            title: "Noticias Recientes",
+            date: "3 de Diciembre, 2025",
+            articleTitle: "Spotify se asocia con Good Bunny Foundation y Fundación Rimas",
+            articleBody: '"Además, como parte de nuestro compromiso continuo de apoyar a la próxima generación de músicos y profesionales de la industria, Spotify se asocia con Good Bunny Foundation y Fundación Rimas para lanzar The Mobile Academy, que traerá recursos musicales, capacitación y becas dedicadas a estudiantes en todo Puerto Rico."',
+            readMore: "Leer artículo completo"
         },
         // Footer Section
         footer: {
             tagline: "Transformando vidas a través del acompañamiento continuo desde 2018.",
+            description: "Transformando el futuro de la juventud puertorriqueña a través de la música, el deporte y la educación.",
             nonprofit: "Organización 501(c)(3) sin fines de lucro",
             accionesTitle: "Llamadas a la Acción",
+            links: "Enlaces Rápidos",
             apoyaMision: "Apoya nuestra misión",
             solicitaBeca: "Solicita una subvención",
             conoceProgramas: "Conoce nuestros programas",
@@ -192,6 +215,7 @@ const translations = {
         }
     },
     en: {
+        pageTitle: "Fundación Rimas",
         // Navigation
         nav: {
             inicio: "Home",
@@ -225,6 +249,35 @@ const translations = {
             pilar4Text: "Tracking results and verifiable impact",
             bottomText: "We work directly with youth in the juvenile justice system in Puerto Rico,",
             bottomTextBold: "creating real opportunities for transformation and development."
+        },
+        // Dashboard Section
+        dashboard: {
+            title: "Measurable Impact",
+            subtitle: "Real-time data of our intervention",
+            updated: "Updated: Oct 2025",
+            retentionTitle: "Global Retention",
+            retentionAvg: "Average",
+            retentionText: "Consistently higher than system average (45%)",
+            growthTitle: "Participant Growth",
+            growthStart: "Start",
+            investmentTitle: "Direct Investment",
+            scholarships: "Educational Scholarships",
+            equipment: "Equipment",
+            mentors: "Mentors",
+            totalInvested: "Total invested this quarter:"
+        },
+        // Showcase Section
+        showcase: {
+            title: "Listen to the <span class='text-transparent bg-clip-text bg-gradient-to-r from-rimas-cyan to-white'>Future</span>",
+            subtitle: "Original productions by our students",
+            nowPlaying: "Now Playing",
+            track1: "Dreams of the Hood",
+            artist1: "Carlos M. • 17 years",
+            track2: "Rhythm of Change",
+            artist2: "Ana S. • 16 years",
+            track3: "Voices of Tomorrow",
+            artist3: "Workshop Group • Bayamón",
+            cta: "Listen to Full Playlist"
         },
         // Historia Section
         historia: {
@@ -283,22 +336,19 @@ const translations = {
         // Destrezas Section
         destrezas: {
             title: "Transferable Skills",
-            subtitle: "What you learn here serves you everywhere",
-            networking: "Networking",
-            networkingDesc: "Applicable in any industry",
-            presupuesto: "Budgeting",
-            presupuestoDesc: "Personal and professional finances",
-            branding: "Personal Branding",
-            brandingDesc: "Career development",
-            eventos: "Event Organization",
-            eventosDesc: "Project management",
-            quote: '"A good accountant in music is a good accountant in any industry"'
+            subtitle: "Beyond the entertainment industry",
+            card1Title: "Critical Thinking",
+            card1Text: "Complex problem solving in production and logistics.",
+            card2Title: "Leadership",
+            card2Text: "Team management and decision making under pressure.",
+            card3Title: "Communication",
+            card3Text: "Effective expression of ideas and negotiation."
         },
         // Subvenciones Section
         subvenciones: {
             title: "Grants Program",
-            amount: "$25,000+",
-            amountDesc: "Granted this quarter",
+            subtitle: "Empowering individual talent development",
+            cardTitle: "Available Scholarships",
             atletas: "Athletes",
             atletasDesc: "Support for outstanding athletes",
             musicos: "Musicians",
@@ -307,7 +357,7 @@ const translations = {
             artistasDesc: "Investment in creative talent",
             processTitle: "Transparent and Merit-Based Process",
             processDesc: "All our grants follow clear evaluation criteria",
-            nextCall: "Next call for applications: January 2026"
+            ctaButton: "Request Information"
         },
         // Alianzas Section
         alianzas: {
@@ -331,36 +381,32 @@ const translations = {
             partner7: "University of Puerto Rico",
             partner8: "Junte de Plenerxs"
         },
-        // Movimiento Section
-        movimiento: {
-            title: "Join the Movement",
-            subtitle: "There are multiple ways to be part of the change",
-            nacionales: "National Foundations",
-            nacionalesDesc: "Invest in Puerto Rico's only proven juvenile justice model",
-            empresas: "Local Businesses",
-            empresasDesc: "Adopt a campus, transform a community",
-            profesionales: "Professionals",
-            profesionalesDesc: "Share your expertise, inspire futures",
-            alumni: "Alumni",
-            alumniDesc: "Return as a mentor, close the circle",
-            comunidad: "Community",
-            comunidadDesc: "Propose the next campus - where do we need you?"
-        },
+
         // Hitos Section
         hitos: {
             title: "Next Milestones",
-            enero: "January 2026",
-            eneroDesc: "Caguas Campus Opening",
-            accountability: "Accountability & Transparency",
-            accountabilityDesc: "Quarterly publication of metrics: attendance, retention, academic progress, skills development",
-            academia: "Mobile Academy",
-            academiaDesc: "Pop-up programs bringing the study wagon to new communities"
+            hito1Title: "Villalba Album Launch",
+            hito1Text: "Digital distribution and live showcase",
+            hito2Title: "Residency Program Expansion",
+            hito2Text: "5 new scholarships for emerging talent",
+            hito3Title: "The Mobile Academy Launch",
+            hito3Text: "Musical resources and scholarships with Spotify & Good Bunny Foundation"
+        },
+        // News Section
+        news: {
+            title: "Recent News",
+            date: "December 3, 2025",
+            articleTitle: "Spotify partners with Good Bunny Foundation and Rimas Foundation",
+            articleBody: '"Additionally, as part of our long-standing commitment to supporting the next generation of musicians and industry professionals, Spotify is partnering with Good Bunny Foundation and Rimas Foundation to launch The Mobile Academy, which will bring musical resources, training, and dedicated scholarships to students across Puerto Rico."',
+            readMore: "Read full article"
         },
         // Footer Section
         footer: {
             tagline: "Transforming lives through continuous mentorship since 2018.",
+            description: "Transforming the future of Puerto Rican youth through music, sports, and education.",
             nonprofit: "501(c)(3) nonprofit organization",
             accionesTitle: "Calls to Action",
+            links: "Quick Links",
             apoyaMision: "Support our mission",
             solicitaBeca: "Apply for a grant",
             conoceProgramas: "Learn about our programs",
@@ -477,7 +523,7 @@ const LanguageSwitcher = {
         const langToggle = document.getElementById('language-toggle');
         if (langToggle) {
             const self = this; // Bind 'this' context for arrow function
-            langToggle.addEventListener('click', function(e) {
+            langToggle.addEventListener('click', function (e) {
                 e.preventDefault();
                 e.stopPropagation();
                 self.toggleLanguage();
@@ -488,7 +534,7 @@ const LanguageSwitcher = {
         const langToggleMobile = document.getElementById('language-toggle-mobile');
         if (langToggleMobile) {
             const self = this; // Bind 'this' context for arrow function
-            langToggleMobile.addEventListener('click', function(e) {
+            langToggleMobile.addEventListener('click', function (e) {
                 e.preventDefault();
                 e.stopPropagation();
                 self.toggleLanguage();
@@ -524,7 +570,7 @@ const LanguageSwitcher = {
 // Initialize on page load
 function initLanguageSwitcher() {
     if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             LanguageSwitcher.init();
         });
     } else {

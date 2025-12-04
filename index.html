@@ -1,17 +1,22 @@
 <!DOCTYPE html>
 <html lang="es" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title data-i18n-title="pageTitle">Fundación Rimas - Transformando Juventud PR | Boletín Octubre 2025</title>
-    <meta name="description" content="Únicos trabajando con jóvenes en justicia juvenil en PR. 123 jóvenes impactados, 6 campus activos. Más que eventos, creamos sistemas de cambio." data-i18n-desc="true">
-    <meta name="keywords" content="Fundación Rimas, juventud Puerto Rico, justicia juvenil, educación musical, desarrollo comunitario">
+    <meta name="description"
+        content="Únicos trabajando con jóvenes en justicia juvenil en PR. 123 jóvenes impactados, 6 campus activos. Más que eventos, creamos sistemas de cambio."
+        data-i18n-desc="true">
+    <meta name="keywords"
+        content="Fundación Rimas, juventud Puerto Rico, justicia juvenil, educación musical, desarrollo comunitario">
     <meta name="author" content="Fundación Rimas">
 
     <!-- Open Graph / Social Media -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="Fundación Rimas - Transformando Juventud PR">
-    <meta property="og:description" content="Únicos trabajando con jóvenes en justicia juvenil en PR. Más que eventos, creamos sistemas de cambio.">
+    <meta property="og:description"
+        content="Únicos trabajando con jóvenes en justicia juvenil en PR. Más que eventos, creamos sistemas de cambio.">
     <meta property="og:url" content="https://fundacionrimas.org">
 
     <!-- Tailwind CSS -->
@@ -20,7 +25,9 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;600&display=swap"
+        rel="stylesheet">
 
     <!-- AOS Animation Library -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -34,217 +41,644 @@
             theme: {
                 extend: {
                     colors: {
-                        'rimas-red': '#FF0000',
-                        'rimas-blue': '#0078D7',
-                        'rimas-navy': '#1a1a2e',
-                        'rimas-black': '#000000',
+                        'rimas-black': 'var(--bg-main)',
+                        'rimas-dark': 'var(--bg-secondary)',
+                        'rimas-gray': 'var(--bg-tertiary)',
+                        'rimas-text-primary': 'var(--text-main)',
+                        'rimas-text-secondary': 'var(--text-muted)',
+                        'rimas-red': '#FF0033', /* Neon Red */
+                        'rimas-cyan': '#00F0FF', /* Neon Cyan */
+                        'rimas-white': '#F0F0F0',
                     },
                     fontFamily: {
-                        'sans': ['Inter', 'sans-serif'],
-                        'body': ['Roboto', 'sans-serif'],
-                        'serif': ['Playfair Display', 'serif'],
+                        'sans': ['Outfit', 'sans-serif'],
+                        'display': ['Space Grotesk', 'sans-serif'],
+                        'body': ['Inter', 'sans-serif'],
+                    },
+                    backgroundImage: {
+                        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
                     }
                 }
             }
         }
     </script>
 </head>
-<body class="font-body text-gray-900 bg-white">
+
+<body class="font-body text-rimas-text-primary bg-rimas-black selection:bg-rimas-red selection:text-rimas-text-primary">
 
     <!-- Navigation -->
-    <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-sm shadow-sm z-50" role="navigation" aria-label="Main navigation">
+    <nav class="fixed top-0 w-full bg-rimas-black/80 backdrop-blur-md border-b border-white/10 z-50 transition-all duration-300"
+        role="navigation" aria-label="Main navigation">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16 sm:h-20">
                 <div class="flex-shrink-0">
-                    <a href="#hero" class="flex items-center">
-                        <img src="assets/images/logo.png" alt="Fundación Rimas Logo" class="h-10 sm:h-12 w-auto">
+                    <a href="#hero" class="flex items-center group">
+                        <img src="assets/images/logo.png" alt="Fundación Rimas Logo"
+                            class="h-10 sm:h-12 w-auto theme-logo group-hover:opacity-80 transition-opacity">
                     </a>
                 </div>
-                <div class="hidden md:flex space-x-6 items-center">
-                    <a href="#hero" class="text-sm font-medium hover:text-rimas-blue transition-colors" data-i18n="nav.inicio">Inicio</a>
-                    <a href="#diferenciador" class="text-sm font-medium hover:text-rimas-blue transition-colors" data-i18n="nav.quienesSomos">Quiénes Somos</a>
-                    <a href="#academia" class="text-sm font-medium hover:text-rimas-blue transition-colors" data-i18n="nav.laAcademia">La Academia</a>
-                    <a href="#destrezas" class="text-sm font-medium hover:text-rimas-blue transition-colors" data-i18n="nav.destrezas">Destrezas</a>
-                    <a href="#alianzas" class="text-sm font-medium hover:text-rimas-blue transition-colors" data-i18n="nav.alianzas">Alianzas</a>
-                    <a href="https://donorbox.org/fundacion-rimas" class="bg-rimas-blue text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-blue-600 transition-colors" data-i18n="nav.apoyar">Apoyar</a>
-                    <button id="language-toggle" type="button" class="ml-2 bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-3 rounded-md text-sm transition-colors" title="Toggle language">ES</button>
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#hero"
+                        class="text-sm font-medium text-rimas-text-primary hover:text-rimas-cyan transition-colors tracking-wide"
+                        data-i18n="nav.inicio">Inicio</a>
+                    <a href="#diferenciador"
+                        class="text-sm font-medium text-rimas-text-primary hover:text-rimas-cyan transition-colors tracking-wide"
+                        data-i18n="nav.quienesSomos">Quiénes Somos</a>
+                    <a href="#academia"
+                        class="text-sm font-medium text-rimas-text-primary hover:text-rimas-cyan transition-colors tracking-wide"
+                        data-i18n="nav.laAcademia">La Academia</a>
+                    <a href="#destrezas"
+                        class="text-sm font-medium text-rimas-text-primary hover:text-rimas-cyan transition-colors tracking-wide"
+                        data-i18n="nav.destrezas">Destrezas</a>
+                    <a href="#alianzas"
+                        class="text-sm font-medium text-rimas-text-primary hover:text-rimas-cyan transition-colors tracking-wide"
+                        data-i18n="nav.alianzas">Alianzas</a>
+                    <a href="https://donorbox.org/fundacion-rimas"
+                        class="bg-rimas-red text-rimas-text-primary px-6 py-2 rounded-full text-sm font-bold hover:bg-red-600 transition-all shadow-[0_0_15px_rgba(255,0,51,0.3)] hover:shadow-[0_0_25px_rgba(255,0,51,0.5)]"
+                        data-i18n="nav.apoyar">Apoyar</a>
+                    <button id="language-toggle" type="button"
+                        class="ml-2 text-rimas-text-secondary hover:text-rimas-text-primary font-bold py-2 px-3 rounded-md text-sm transition-colors border border-white/10 hover:border-white/30"
+                        title="Toggle language">ES</button>
                 </div>
-                <button id="mobile-menu-btn" class="md:hidden p-2" aria-label="Abrir menú" aria-expanded="false" data-i18n="nav.abrirMenu">
+                <button id="mobile-menu-btn" class="md:hidden p-2 text-rimas-text-primary" aria-label="Abrir menú"
+                    aria-expanded="false" data-i18n="nav.abrirMenu">
                     <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16" />
                     </svg>
                 </button>
             </div>
         </div>
         <!-- Mobile menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+        <div id="mobile-menu" class="hidden md:hidden bg-rimas-dark border-t border-white/10">
             <div class="px-4 py-3 space-y-3">
-                <a href="#hero" class="block text-sm font-medium hover:text-rimas-blue transition-colors" data-i18n="nav.inicio">Inicio</a>
-                <a href="#diferenciador" class="block text-sm font-medium hover:text-rimas-blue transition-colors" data-i18n="nav.quienesSomos">Quiénes Somos</a>
-                <a href="#academia" class="block text-sm font-medium hover:text-rimas-blue transition-colors" data-i18n="nav.laAcademia">La Academia</a>
-                <a href="#destrezas" class="block text-sm font-medium hover:text-rimas-blue transition-colors" data-i18n="nav.destrezas">Destrezas</a>
-                <a href="#alianzas" class="block text-sm font-medium hover:text-rimas-blue transition-colors" data-i18n="nav.alianzas">Alianzas</a>
-                <a href="https://donorbox.org/fundacion-rimas" class="block text-center bg-rimas-blue text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-blue-600 transition-colors" data-i18n="nav.apoyar">Apoyar</a>
-                <button id="language-toggle-mobile" type="button" class="w-full bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-3 rounded-md text-sm transition-colors" title="Toggle language">ES / EN</button>
+                <a href="#hero"
+                    class="block text-sm font-medium text-rimas-text-primary hover:text-rimas-cyan transition-colors"
+                    data-i18n="nav.inicio">Inicio</a>
+                <a href="#diferenciador"
+                    class="block text-sm font-medium text-rimas-text-primary hover:text-rimas-cyan transition-colors"
+                    data-i18n="nav.quienesSomos">Quiénes Somos</a>
+                <a href="#academia"
+                    class="block text-sm font-medium text-rimas-text-primary hover:text-rimas-cyan transition-colors"
+                    data-i18n="nav.laAcademia">La Academia</a>
+                <a href="#destrezas"
+                    class="block text-sm font-medium text-rimas-text-primary hover:text-rimas-cyan transition-colors"
+                    data-i18n="nav.destrezas">Destrezas</a>
+                <a href="#alianzas"
+                    class="block text-sm font-medium text-rimas-text-primary hover:text-rimas-cyan transition-colors"
+                    data-i18n="nav.alianzas">Alianzas</a>
+                <a href="https://donorbox.org/fundacion-rimas"
+                    class="block text-center bg-rimas-red text-rimas-text-primary px-4 py-2 rounded-full text-sm font-bold hover:bg-red-600 transition-colors"
+                    data-i18n="nav.apoyar">Apoyar</a>
+                <button id="language-toggle-mobile" type="button"
+                    class="w-full bg-white/5 hover:bg-white/10 text-rimas-text-primary font-bold py-2 px-3 rounded-md text-sm transition-colors"
+                    title="Toggle language">ES / EN</button>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="hero" class="relative pt-20 sm:pt-24 pb-12 sm:pb-16 bg-gradient-to-b from-gray-50 to-white overflow-hidden">
-        <!-- Parallax Background -->
-        <div id="hero-parallax-bg" class="absolute inset-0 pointer-events-none" style="will-change: transform;">
-            <div class="absolute top-20 left-10 w-64 h-64 bg-rimas-blue/5 rounded-full blur-3xl"></div>
-            <div class="absolute top-40 right-20 w-96 h-96 bg-rimas-red/5 rounded-full blur-3xl"></div>
-            <div class="absolute bottom-20 left-1/3 w-80 h-80 bg-rimas-blue/5 rounded-full blur-3xl"></div>
+    <section id="hero"
+        class="relative pt-32 pb-20 sm:pb-32 bg-rimas-black overflow-hidden min-h-screen flex items-center">
+        <!-- Dynamic Background -->
+        <div id="hero-parallax-bg" class="absolute inset-0 pointer-events-none">
+            <div
+                class="absolute top-0 left-0 w-full h-full bg-[url('https://images.unsplash.com/photo-1514525253440-b393452e3383?q=80&w=2800&auto=format&fit=crop')] bg-cover bg-center opacity-20 mix-blend-overlay">
+            </div>
+            <div
+                class="absolute top-[-10%] right-[-10%] w-[500px] h-[500px] bg-rimas-red/20 rounded-full blur-[120px] animate-pulse">
+            </div>
+            <div class="absolute bottom-[-10%] left-[-10%] w-[500px] h-[500px] bg-rimas-cyan/20 rounded-full blur-[120px] animate-pulse"
+                style="animation-delay: 2s;"></div>
+            <div class="absolute inset-0 bg-gradient-to-b from-rimas-black/50 via-transparent to-rimas-black"></div>
         </div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="text-center" data-aos="fade-up">
-                <div class="flex justify-center mb-8">
-                    <img src="assets/images/logo.png" alt="Fundación Rimas" class="h-20 sm:h-24 md:h-28 w-auto">
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+            <div class="text-center max-w-5xl mx-auto" data-aos="fade-up">
+                <div class="flex justify-center mb-10">
+                    <img src="assets/images/logo.png" alt="Fundación Rimas"
+                        class="h-24 sm:h-32 md:h-40 w-auto theme-logo drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]">
                 </div>
-                <h2 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-sans font-bold text-rimas-navy mb-6 leading-tight" data-i18n="hero.title">
-                    No se puede aspirar a<br>lo que no conoces
+                <h2 class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-display font-bold text-rimas-text-primary mb-8 leading-none tracking-tight"
+                    data-i18n="hero.title">
+                    NO SE PUEDE ASPIRAR A<br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-rimas-cyan to-rimas-red">LO QUE NO
+                        CONOCES</span>
                 </h2>
-                <p class="text-xl sm:text-2xl md:text-3xl text-gray-700 font-light mb-12 max-w-4xl mx-auto" data-i18n="hero.subtitle">
+                <p class="text-xl sm:text-2xl md:text-3xl text-rimas-text-secondary font-light mb-16 max-w-3xl mx-auto leading-relaxed"
+                    data-i18n="hero.subtitle">
                     Transformando vidas a través del acompañamiento continuo
                 </p>
 
                 <!-- Stats Grid -->
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 mt-16 max-w-5xl mx-auto">
-                    <div class="stat-card" data-aos="fade-up" data-aos-delay="100">
-                        <div class="text-4xl sm:text-5xl md:text-6xl font-sans font-bold text-rimas-blue mb-2" data-count="123">0</div>
-                        <div class="text-sm sm:text-base text-gray-600 font-medium" data-i18n="hero.stat1">Jóvenes Impactados</div>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mt-12 border-t border-white/10 pt-12">
+                    <div class="stat-card group" data-aos="fade-up" data-aos-delay="100">
+                        <div class="text-5xl sm:text-6xl md:text-7xl font-display font-bold text-rimas-text-primary mb-2 group-hover:text-rimas-cyan transition-colors"
+                            data-count="123">0</div>
+                        <div class="text-sm sm:text-base text-rimas-text-secondary font-medium uppercase tracking-widest"
+                            data-i18n="hero.stat1">Jóvenes Impactados</div>
                     </div>
-                    <div class="stat-card" data-aos="fade-up" data-aos-delay="200">
-                        <div class="text-4xl sm:text-5xl md:text-6xl font-sans font-bold text-rimas-red mb-2" data-count="6">0</div>
-                        <div class="text-sm sm:text-base text-gray-600 font-medium" data-i18n="hero.stat2">Campus Activos</div>
+                    <div class="stat-card group" data-aos="fade-up" data-aos-delay="200">
+                        <div class="text-5xl sm:text-6xl md:text-7xl font-display font-bold text-rimas-text-primary mb-2 group-hover:text-rimas-red transition-colors"
+                            data-count="6">0</div>
+                        <div class="text-sm sm:text-base text-rimas-text-secondary font-medium uppercase tracking-widest"
+                            data-i18n="hero.stat2">Campus Activos</div>
                     </div>
-                    <div class="stat-card" data-aos="fade-up" data-aos-delay="300">
-                        <div class="text-4xl sm:text-5xl md:text-6xl font-sans font-bold text-rimas-blue mb-2" data-count="85">0</div>
-                        <div class="text-sm sm:text-base text-gray-600 font-medium" data-i18n="hero.stat3">% Tasa de Retención</div>
+                    <div class="stat-card group" data-aos="fade-up" data-aos-delay="300">
+                        <div class="text-5xl sm:text-6xl md:text-7xl font-display font-bold text-rimas-text-primary mb-2 group-hover:text-rimas-cyan transition-colors"
+                            data-count="85">0</div>
+                        <div class="text-sm sm:text-base text-rimas-text-secondary font-medium uppercase tracking-widest"
+                            data-i18n="hero.stat3">% Tasa de Retención</div>
                     </div>
-                    <div class="stat-card" data-aos="fade-up" data-aos-delay="400">
-                        <div class="text-4xl sm:text-5xl md:text-6xl font-sans font-bold text-rimas-red mb-2" data-count="450">0</div>
-                        <div class="text-sm sm:text-base text-gray-600 font-medium" data-i18n="hero.stat4">+ Horas de Programación</div>
+                    <div class="stat-card group" data-aos="fade-up" data-aos-delay="400">
+                        <div class="text-5xl sm:text-6xl md:text-7xl font-display font-bold text-rimas-text-primary mb-2 group-hover:text-rimas-red transition-colors"
+                            data-count="450">0</div>
+                        <div class="text-sm sm:text-base text-rimas-text-secondary font-medium uppercase tracking-widest"
+                            data-i18n="hero.stat4">+ Horas de Programación</div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent"></div>
     </section>
 
     <!-- Diferenciador Institucional -->
-    <section id="diferenciador" class="pt-8 sm:pt-12 pb-16 sm:pb-20 bg-white relative z-10">
+    <section id="diferenciador" class="pt-20 pb-24 bg-rimas-dark relative z-10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16 bg-white py-4 relative z-10" data-aos="fade-up">
-                <h2 class="text-3xl sm:text-4xl md:text-5xl font-sans font-bold text-rimas-navy mb-4" data-i18n="diferenciador.mainTitle">
-                    Más que eventos, creamos sistemas de cambio
+            <div class="text-center mb-16 relative z-10" data-aos="fade-up">
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-rimas-text-primary mb-4"
+                    data-i18n="diferenciador.mainTitle">
+                    Más que eventos, creamos <span class="text-rimas-cyan">sistemas de cambio</span>
                 </h2>
             </div>
 
             <!-- Pilares de Nuestro Modelo -->
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-                <div class="bg-gradient-to-br from-gray-50 to-white border border-gray-200 p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow" data-aos="fade-up" data-aos-delay="100">
-                    <div class="w-12 h-12 bg-rimas-blue/10 rounded-lg flex items-center justify-center mb-4">
-                        <svg class="w-6 h-6 text-rimas-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                <div class="bg-white/5 border border-white/10 p-8 rounded-2xl hover:bg-white/10 transition-all duration-300 group"
+                    data-aos="fade-up" data-aos-delay="100">
+                    <div
+                        class="w-14 h-14 bg-rimas-cyan/10 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <svg class="w-7 h-7 text-rimas-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
                     </div>
-                    <h3 class="text-lg font-sans font-bold text-rimas-navy mb-2" data-i18n="diferenciador.pilar1Title">Continuidad</h3>
-                    <p class="text-gray-600 text-sm" data-i18n="diferenciador.pilar1Text">Programas durante todo el año, no eventos aislados</p>
+                    <h3 class="text-xl font-display font-bold text-rimas-text-primary mb-3"
+                        data-i18n="diferenciador.pilar1Title">
+                        Continuidad</h3>
+                    <p class="text-rimas-text-secondary text-sm leading-relaxed" data-i18n="diferenciador.pilar1Text">
+                        Programas
+                        durante todo el año, no eventos aislados</p>
                 </div>
 
-                <div class="bg-gradient-to-br from-gray-50 to-white border border-gray-200 p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow" data-aos="fade-up" data-aos-delay="200">
-                    <div class="w-12 h-12 bg-rimas-blue/10 rounded-lg flex items-center justify-center mb-4">
-                        <svg class="w-6 h-6 text-rimas-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                <div class="bg-white/5 border border-white/10 p-8 rounded-2xl hover:bg-white/10 transition-all duration-300 group"
+                    data-aos="fade-up" data-aos-delay="200">
+                    <div
+                        class="w-14 h-14 bg-rimas-red/10 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <svg class="w-7 h-7 text-rimas-red" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                         </svg>
                     </div>
-                    <h3 class="text-lg font-sans font-bold text-rimas-navy mb-2" data-i18n="diferenciador.pilar2Title">Acompañamiento</h3>
-                    <p class="text-gray-600 text-sm" data-i18n="diferenciador.pilar2Text">Seguimiento semanal personalizado para cada joven</p>
+                    <h3 class="text-xl font-display font-bold text-rimas-text-primary mb-3"
+                        data-i18n="diferenciador.pilar2Title">
+                        Acompañamiento</h3>
+                    <p class="text-rimas-text-secondary text-sm leading-relaxed" data-i18n="diferenciador.pilar2Text">
+                        Seguimiento
+                        semanal personalizado para cada joven</p>
                 </div>
 
-                <div class="bg-gradient-to-br from-gray-50 to-white border border-gray-200 p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow" data-aos="fade-up" data-aos-delay="300">
-                    <div class="w-12 h-12 bg-rimas-blue/10 rounded-lg flex items-center justify-center mb-4">
-                        <svg class="w-6 h-6 text-rimas-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                <div class="bg-white/5 border border-white/10 p-8 rounded-2xl hover:bg-white/10 transition-all duration-300 group"
+                    data-aos="fade-up" data-aos-delay="300">
+                    <div
+                        class="w-14 h-14 bg-rimas-cyan/10 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <svg class="w-7 h-7 text-rimas-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                         </svg>
                     </div>
-                    <h3 class="text-lg font-sans font-bold text-rimas-navy mb-2" data-i18n="diferenciador.pilar3Title">Proyectos Reales</h3>
-                    <p class="text-gray-600 text-sm" data-i18n="diferenciador.pilar3Text">Desarrollo de iniciativas con impacto comunitario tangible</p>
+                    <h3 class="text-xl font-display font-bold text-rimas-text-primary mb-3"
+                        data-i18n="diferenciador.pilar3Title">
+                        Proyectos Reales</h3>
+                    <p class="text-rimas-text-secondary text-sm leading-relaxed" data-i18n="diferenciador.pilar3Text">
+                        Desarrollo de
+                        iniciativas con impacto comunitario tangible</p>
                 </div>
 
-                <div class="bg-gradient-to-br from-gray-50 to-white border border-gray-200 p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow" data-aos="fade-up" data-aos-delay="400">
-                    <div class="w-12 h-12 bg-rimas-blue/10 rounded-lg flex items-center justify-center mb-4">
-                        <svg class="w-6 h-6 text-rimas-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                <div class="bg-white/5 border border-white/10 p-8 rounded-2xl hover:bg-white/10 transition-all duration-300 group"
+                    data-aos="fade-up" data-aos-delay="400">
+                    <div
+                        class="w-14 h-14 bg-rimas-red/10 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <svg class="w-7 h-7 text-rimas-red" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                         </svg>
                     </div>
-                    <h3 class="text-lg font-sans font-bold text-rimas-navy mb-2" data-i18n="diferenciador.pilar4Title">Medición</h3>
-                    <p class="text-gray-600 text-sm" data-i18n="diferenciador.pilar4Text">Seguimiento de resultados e impacto verificable</p>
+                    <h3 class="text-xl font-display font-bold text-rimas-text-primary mb-3"
+                        data-i18n="diferenciador.pilar4Title">
+                        Medición</h3>
+                    <p class="text-rimas-text-secondary text-sm leading-relaxed" data-i18n="diferenciador.pilar4Text">
+                        Seguimiento de
+                        resultados e impacto verificable</p>
                 </div>
             </div>
 
-            <div class="bg-gray-50 border-l-4 border-rimas-blue p-8 sm:p-10 rounded-lg" data-aos="fade-up">
-                <p class="text-lg sm:text-xl text-gray-700 italic text-center">
-                    <span data-i18n="diferenciador.bottomText">Trabajamos directamente con jóvenes en el sistema de justicia juvenil en Puerto Rico,</span>
-                    <span class="text-rimas-navy font-semibold" data-i18n="diferenciador.bottomTextBold">creando oportunidades reales de transformación y desarrollo.</span>
+            <div class="bg-gradient-to-r from-rimas-gray to-rimas-black border-l-4 border-rimas-cyan p-8 sm:p-10 rounded-r-lg"
+                data-aos="fade-up">
+                <p class="text-lg sm:text-xl text-rimas-text-primary italic">
+                    <span data-i18n="diferenciador.bottomText">Trabajamos directamente con jóvenes en el sistema de
+                        justicia juvenil en Puerto Rico,</span>
+                    <span class="text-rimas-text-primary font-bold" data-i18n="diferenciador.bottomTextBold">creando
+                        oportunidades
+                        reales de transformación y desarrollo.</span>
                 </p>
             </div>
         </div>
     </section>
 
+    <!-- Impact Dashboard -->
+    <section id="dashboard" class="py-20 bg-rimas-black relative overflow-hidden">
+        <div
+            class="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-rimas-gray/20 to-transparent pointer-events-none">
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12" data-aos="fade-up">
+                <div>
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-rimas-text-primary mb-2">
+                        <span data-i18n="dashboard.title">Impacto Medible</span>
+                    </h2>
+                    <p class="text-rimas-text-secondary" data-i18n="dashboard.subtitle">Datos en tiempo real de nuestra
+                        intervención
+                    </p>
+                </div>
+                <div class="mt-4 md:mt-0">
+                    <span
+                        class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-rimas-cyan/10 text-rimas-cyan border border-rimas-cyan/20">
+                        <span class="w-2 h-2 bg-rimas-cyan rounded-full mr-2 animate-pulse"></span>
+                        <span data-i18n="dashboard.updated">Actualizado: Oct 2025</span>
+                    </span>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Retention Chart -->
+                <div class="bg-rimas-dark border border-white/5 p-8 rounded-2xl relative overflow-hidden group hover:border-rimas-cyan/30 transition-colors"
+                    data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="text-xl font-display font-bold text-rimas-text-primary mb-6"
+                        data-i18n="dashboard.retentionTitle">
+                        Retención Global</h3>
+                    <div class="relative w-48 h-48 mx-auto">
+                        <svg class="w-full h-full transform -rotate-90">
+                            <circle cx="96" cy="96" r="88" fill="none" stroke="#1E1E1E" stroke-width="12" />
+                            <circle cx="96" cy="96" r="88" fill="none" stroke="#00F0FF" stroke-width="12"
+                                stroke-dasharray="553" stroke-dashoffset="83"
+                                class="transition-all duration-1000 ease-out" />
+                        </svg>
+                        <div class="absolute inset-0 flex flex-col items-center justify-center">
+                            <span class="text-4xl font-bold text-rimas-text-primary">85%</span>
+                            <span class="text-xs text-rimas-text-secondary uppercase tracking-wider"
+                                data-i18n="dashboard.retentionAvg">Promedio</span>
+                        </div>
+                    </div>
+                    <p class="text-center text-rimas-text-secondary text-sm mt-6" data-i18n="dashboard.retentionText">
+                        Consistentemente superior al promedio del sistema
+                        (45%)</p>
+                </div>
+
+                <!-- Growth Chart -->
+                <div class="bg-rimas-dark border border-white/5 p-8 rounded-2xl relative overflow-hidden group hover:border-rimas-red/30 transition-colors"
+                    data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="text-xl font-display font-bold text-rimas-text-primary mb-6"
+                        data-i18n="dashboard.growthTitle">
+                        Crecimiento de Participantes</h3>
+                    <div class="flex items-end justify-between h-48 px-2 space-x-4">
+                        <div class="w-full bg-rimas-gray/50 rounded-t-lg relative group-hover:bg-rimas-red/20 transition-colors"
+                            style="height: 40%">
+                            <span
+                                class="absolute -top-6 left-1/2 transform -translate-x-1/2 text-xs text-rimas-text-secondary">2023</span>
+                        </div>
+                        <div class="w-full bg-rimas-gray/50 rounded-t-lg relative group-hover:bg-rimas-red/40 transition-colors"
+                            style="height: 65%">
+                            <span
+                                class="absolute -top-6 left-1/2 transform -translate-x-1/2 text-xs text-rimas-text-secondary">2024</span>
+                        </div>
+                        <div class="w-full bg-rimas-red rounded-t-lg relative shadow-[0_0_15px_rgba(255,0,51,0.3)]"
+                            style="height: 100%">
+                            <span
+                                class="absolute -top-6 left-1/2 transform -translate-x-1/2 text-xs text-rimas-text-primary font-bold">2025</span>
+                        </div>
+                    </div>
+                    <div
+                        class="flex justify-between mt-4 text-sm text-rimas-text-secondary border-t border-white/10 pt-4">
+                        <span data-i18n="dashboard.growthStart">Inicio</span>
+                        <span class="text-rimas-red font-bold">+120%</span>
+                    </div>
+                </div>
+
+                <!-- Funds Chart -->
+                <div class="bg-rimas-dark border border-white/5 p-8 rounded-2xl relative overflow-hidden group hover:border-rimas-cyan/30 transition-colors"
+                    data-aos="fade-up" data-aos-delay="300">
+                    <h3 class="text-xl font-display font-bold text-rimas-text-primary mb-6"
+                        data-i18n="dashboard.investmentTitle">
+                        Inversión Directa</h3>
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex justify-between text-sm mb-2">
+                                <span class="text-rimas-text-secondary" data-i18n="dashboard.scholarships">Becas
+                                    Educativas</span>
+                                <span class="text-rimas-text-primary">45%</span>
+                            </div>
+                            <div class="w-full bg-rimas-gray h-2 rounded-full overflow-hidden">
+                                <div class="bg-rimas-cyan h-full rounded-full" style="width: 45%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-sm mb-2">
+                                <span class="text-rimas-text-secondary"
+                                    data-i18n="dashboard.equipment">Equipamiento</span>
+                                <span class="text-rimas-text-primary">30%</span>
+                            </div>
+                            <div class="w-full bg-rimas-gray h-2 rounded-full overflow-hidden">
+                                <div class="bg-rimas-cyan/70 h-full rounded-full" style="width: 30%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-sm mb-2">
+                                <span class="text-rimas-text-secondary" data-i18n="dashboard.mentors">Mentores</span>
+                                <span class="text-rimas-text-primary">25%</span>
+                            </div>
+                            <div class="w-full bg-rimas-gray h-2 rounded-full overflow-hidden">
+                                <div class="bg-rimas-cyan/40 h-full rounded-full" style="width: 25%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-8 p-4 bg-rimas-black/50 rounded-lg border border-white/5">
+                        <p class="text-xs text-rimas-text-secondary text-center"><span
+                                data-i18n="dashboard.totalInvested">Total
+                                invertido este trimestre:</span> <span
+                                class="text-rimas-text-primary font-bold">$25,000+</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Student Showcase (Music Player) -->
+    <section id="showcase" class="py-24 bg-rimas-dark relative overflow-hidden border-y border-white/5">
+        <div
+            class="absolute inset-0 bg-[url('assets/images/studio-bg.jpg')] bg-cover bg-center opacity-10 mix-blend-overlay">
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <span class="text-rimas-red font-bold tracking-widest uppercase text-sm mb-2 block"
+                    data-i18n="showcase.subtitle">Producciones originales de nuestros estudiantes</span>
+                <h2 class="text-4xl md:text-6xl font-display font-bold text-rimas-text-primary mb-6"
+                    data-i18n="showcase.title">
+                    Listen to the <span
+                        class="text-transparent bg-clip-text bg-gradient-to-r from-rimas-cyan to-white">Future</span>
+                </h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <!-- Player UI -->
+                <div class="bg-rimas-black/80 backdrop-blur-xl border border-white/10 rounded-3xl p-8 shadow-2xl relative overflow-hidden"
+                    data-aos="fade-right">
+                    <!-- Glow effect -->
+                    <div
+                        class="absolute top-0 right-0 w-64 h-64 bg-rimas-cyan/20 rounded-full blur-3xl -mr-32 -mt-32 pointer-events-none">
+                    </div>
+
+                    <div class="flex items-center space-x-6 mb-8">
+                    </div>
+
+                    <!-- Player Controls -->
+                    <div class="border-t border-white/10 pt-6">
+                        <div class="w-full bg-gray-800 h-1 rounded-full mb-4 overflow-hidden group cursor-pointer">
+                            <div class="bg-rimas-red h-full w-1/3 relative">
+                                <div
+                                    class="absolute right-0 top-1/2 transform -translate-y-1/2 w-3 h-3 bg-white rounded-full shadow opacity-0 group-hover:opacity-100 transition-opacity">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <div class="flex space-x-4 text-rimas-text-secondary">
+                                <button class="hover:text-rimas-text-primary"><svg class="w-5 h-5" fill="none"
+                                        stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                                    </svg></button>
+                            </div>
+                            <div class="flex items-center space-x-6">
+                                <button class="text-rimas-text-primary hover:text-rimas-text-primary"><svg
+                                        class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M11 17l-5-5 5-5v10zm7-5l-5 5V7l5 5z" />
+                                    </svg></button>
+                                <button
+                                    class="w-12 h-12 bg-white text-black rounded-full flex items-center justify-center hover:scale-105 transition-transform shadow-[0_0_15px_rgba(255,255,255,0.3)]">
+                                    <svg class="w-5 h-5 ml-1" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M8 5v14l11-7z" />
+                                    </svg>
+                                </button>
+                                <button class="text-rimas-text-primary hover:text-rimas-text-primary"><svg
+                                        class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M13 7l5 5-5 5V7zM6 12l5 5V7l-5 5z" />
+                                    </svg></button>
+                            </div>
+                            <div class="flex space-x-4 text-rimas-text-secondary">
+                                <button class="hover:text-rimas-text-primary"><svg class="w-5 h-5" fill="none"
+                                        stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+                                    </svg></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Playlist Controller -->
+                <div class="space-y-4" data-aos="fade-left">
+                    <div class="flex items-center justify-between mb-6">
+                        <h3 class="text-xl font-bold text-rimas-text-primary" data-i18n="showcase.nowPlaying">Now
+                            Playing</h3>
+                        <span class="text-rimas-cyan text-sm font-mono">03/12</span>
+                    </div>
+
+                    <!-- Track 1 -->
+                    <div
+                        class="track-item p-4 rounded-xl bg-white/10 border-l-2 border-rimas-red cursor-pointer group active-track transition-all">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-4">
+                                <div
+                                    class="w-10 h-10 rounded-full bg-rimas-red/20 flex items-center justify-center text-rimas-red group-hover:scale-110 transition-transform">
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M8 5v14l11-7z" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="text-rimas-text-primary font-bold" data-i18n="showcase.track1">Dreams of
+                                        the Hood</h4>
+                                    <p class="text-rimas-text-secondary text-sm" data-i18n="showcase.artist1">Carlos M.
+                                        • 17 years
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="flex space-x-1 h-4 items-end">
+                                <div class="w-1 bg-rimas-cyan animate-music-bar h-2"></div>
+                                <div class="w-1 bg-rimas-cyan animate-music-bar h-4 animation-delay-100"></div>
+                                <div class="w-1 bg-rimas-cyan animate-music-bar h-3 animation-delay-200"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Track 2 -->
+                    <div
+                        class="track-item p-4 rounded-xl hover:bg-white/5 border border-transparent hover:border-white/20 transition-all cursor-pointer group">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-4">
+                                <div
+                                    class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-rimas-text-secondary group-hover:text-rimas-text-primary group-hover:scale-110 transition-transform">
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M8 5v14l11-7z" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="text-rimas-text-primary group-hover:text-rimas-text-primary font-medium"
+                                        data-i18n="showcase.track2">Rhythm of Change</h4>
+                                    <p class="text-rimas-text-secondary text-sm" data-i18n="showcase.artist2">Ana S. •
+                                        16 years</p>
+                                </div>
+                            </div>
+                            <div class="hidden space-x-1 h-4 items-end">
+                                <div class="w-1 bg-rimas-cyan animate-music-bar h-2"></div>
+                                <div class="w-1 bg-rimas-cyan animate-music-bar h-4 animation-delay-100"></div>
+                                <div class="w-1 bg-rimas-cyan animate-music-bar h-3 animation-delay-200"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Track 3 -->
+                    <div
+                        class="track-item p-4 rounded-xl hover:bg-white/5 border border-transparent hover:border-white/20 transition-all cursor-pointer group">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-4">
+                                <div
+                                    class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-rimas-text-secondary group-hover:text-rimas-text-primary group-hover:scale-110 transition-transform">
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M8 5v14l11-7z" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="text-rimas-text-primary group-hover:text-rimas-text-primary font-medium"
+                                        data-i18n="showcase.track3">Voices of Tomorrow</h4>
+                                    <p class="text-rimas-text-secondary text-sm" data-i18n="showcase.artist3">Workshop
+                                        Group •
+                                        Bayamón</p>
+                                </div>
+                            </div>
+                            <div class="hidden space-x-1 h-4 items-end">
+                                <div class="w-1 bg-rimas-cyan animate-music-bar h-2"></div>
+                                <div class="w-1 bg-rimas-cyan animate-music-bar h-4 animation-delay-100"></div>
+                                <div class="w-1 bg-rimas-cyan animate-music-bar h-3 animation-delay-200"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button
+                        class="w-full mt-4 py-3 border border-white/10 rounded-xl text-sm font-bold text-rimas-text-secondary hover:text-rimas-text-primary hover:border-white/30 transition-all flex items-center justify-center group">
+                        <span data-i18n="showcase.cta">Listen to Full Playlist</span>
+                        <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Historia Destacada -->
-    <section id="historia" class="py-16 sm:py-20 bg-gray-50">
+    <section id="historia" class="py-20 bg-rimas-black relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12" data-aos="fade-up">
-                <h2 class="text-3xl sm:text-4xl md:text-5xl font-sans font-bold text-rimas-navy mb-4" data-i18n="historia.title">
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-rimas-text-primary mb-4"
+                    data-i18n="historia.title">
                     Historia Destacada del Trimestre
                 </h2>
             </div>
 
-            <div class="max-w-4xl mx-auto">
-                <div class="bg-white rounded-lg shadow-xl overflow-hidden" data-aos="fade-up">
+            <div class="max-w-5xl mx-auto">
+                <div class="bg-rimas-dark border border-white/10 rounded-2xl overflow-hidden shadow-2xl"
+                    data-aos="fade-up">
                     <div class="md:flex">
-                        <div class="md:w-2/5 bg-gray-200 min-h-64 flex items-center justify-center overflow-hidden">
-                            <img src="assets/images/juanFox.png" alt="Juan Fox - Primer becado de la residencia" class="w-full h-full object-cover">
+                        <div class="md:w-2/5 relative min-h-[300px]">
+                            <img src="assets/images/juanFox.png" alt="Juan Fox - Primer becado de la residencia"
+                                class="absolute inset-0 w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-rimas-dark via-transparent to-transparent md:bg-gradient-to-r">
+                            </div>
                         </div>
-                        <div class="md:w-3/5 p-8 sm:p-10">
-                            <h3 class="text-2xl sm:text-3xl font-sans font-bold mb-4" data-i18n="historia.name">Juan Fox</h3>
-                            <p class="text-lg sm:text-xl font-serif italic text-gray-700 mb-6" data-i18n="historia.quote">
+                        <div class="md:w-3/5 p-8 sm:p-12">
+                            <h3 class="text-3xl sm:text-4xl font-display font-bold text-rimas-text-primary mb-4"
+                                data-i18n="historia.name">Juan Fox</h3>
+                            <p class="text-xl sm:text-2xl font-serif italic text-rimas-cyan mb-6"
+                                data-i18n="historia.quote">
                                 "De Caras con Causa a la UPR estudiando música popular"
                             </p>
-                            <p class="text-base text-gray-600 mb-6" data-i18n="historia.description">
-                                Juan es el primer becado de nuestra residencia, representando un hito en nuestro compromiso con el desarrollo integral de los jóvenes. Su trayectoria desde Caras con Causa hasta la Universidad de Puerto Rico demuestra el poder del acompañamiento continuo y el apoyo estructurado.
+                            <p class="text-base text-rimas-text-secondary mb-8 leading-relaxed"
+                                data-i18n="historia.description">
+                                Juan es el primer becado de nuestra residencia, representando un hito en nuestro
+                                compromiso con el desarrollo integral de los jóvenes. Su trayectoria desde Caras con
+                                Causa hasta la Universidad de Puerto Rico demuestra el poder del acompañamiento continuo
+                                y el apoyo estructurado.
                             </p>
 
                             <!-- Mini Timeline -->
-                            <div class="space-y-3">
-                                <div class="flex items-start">
-                                    <div class="w-3 h-3 bg-rimas-blue rounded-full mt-1 mr-3 flex-shrink-0"></div>
+                            <div class="space-y-6 border-l-2 border-white/10 ml-2 pl-6 relative">
+                                <div class="relative">
+                                    <div
+                                        class="absolute -left-[31px] top-1 w-4 h-4 bg-rimas-red rounded-full border-4 border-rimas-dark">
+                                    </div>
                                     <div>
-                                        <p class="font-semibold" data-i18n="historia.timeline1Year">2023 - Caras con Causa</p>
-                                        <p class="text-sm text-gray-600" data-i18n="historia.timeline1Text">Inicia su camino con Fundación Rimas</p>
+                                        <p class="font-bold text-rimas-text-primary" data-i18n="historia.timeline1Year">
+                                            2023 - Caras
+                                            con Causa</p>
+                                        <p class="text-sm text-rimas-text-secondary" data-i18n="historia.timeline1Text">
+                                            Inicia su
+                                            camino con Fundación Rimas</p>
                                     </div>
                                 </div>
-                                <div class="flex items-start">
-                                    <div class="w-3 h-3 bg-rimas-blue rounded-full mt-1 mr-3 flex-shrink-0"></div>
+                                <div class="relative">
+                                    <div
+                                        class="absolute -left-[31px] top-1 w-4 h-4 bg-rimas-cyan rounded-full border-4 border-rimas-dark">
+                                    </div>
                                     <div>
-                                        <p class="font-semibold" data-i18n="historia.timeline2Year">2024 - Beca Residencial</p>
-                                        <p class="text-sm text-gray-600" data-i18n="historia.timeline2Text">Primer becado del programa</p>
+                                        <p class="font-bold text-rimas-text-primary" data-i18n="historia.timeline2Year">
+                                            2024 - Beca
+                                            Residencial</p>
+                                        <p class="text-sm text-rimas-text-secondary" data-i18n="historia.timeline2Text">
+                                            Primer
+                                            becado del programa</p>
                                     </div>
                                 </div>
-                                <div class="flex items-start">
-                                    <div class="w-3 h-3 bg-rimas-blue rounded-full mt-1 mr-3 flex-shrink-0"></div>
+                                <div class="relative">
+                                    <div
+                                        class="absolute -left-[31px] top-1 w-4 h-4 bg-white rounded-full border-4 border-rimas-dark">
+                                    </div>
                                     <div>
-                                        <p class="font-semibold" data-i18n="historia.timeline3Year">2025 - UPR</p>
-                                        <p class="text-sm text-gray-600" data-i18n="historia.timeline3Text">Estudiando Música Popular</p>
+                                        <p class="font-bold text-rimas-text-primary" data-i18n="historia.timeline3Year">
+                                            2025 - UPR
+                                        </p>
+                                        <p class="text-sm text-rimas-text-secondary" data-i18n="historia.timeline3Text">
+                                            Estudiando
+                                            Música Popular</p>
                                     </div>
                                 </div>
                             </div>
 
-                            <a href="#contacto" class="inline-block mt-8 bg-rimas-blue text-white px-6 py-3 rounded-md font-medium hover:bg-blue-600 transition-colors" data-i18n="historia.ctaButton">
+                            <a href="#contacto"
+                                class="inline-block mt-10 bg-white text-black px-8 py-3 rounded-full font-bold hover:bg-gray-200 transition-colors"
+                                data-i18n="historia.ctaButton">
                                 Conoce más historias
                             </a>
                         </div>
@@ -255,113 +689,228 @@
     </section>
 
     <!-- La Academia en Acción -->
-    <section id="academia" class="py-16 sm:py-20 bg-white">
+    <section id="academia" class="py-20 bg-rimas-dark">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-3xl sm:text-4xl md:text-5xl font-sans font-bold text-rimas-navy mb-4" data-i18n="academia.title">
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-rimas-text-primary mb-4"
+                    data-i18n="academia.title">
                     La Academia en Acción
                 </h2>
-                <p class="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto" data-i18n="academia.subtitle">
+                <p class="text-lg sm:text-xl text-rimas-text-secondary max-w-3xl mx-auto" data-i18n="academia.subtitle">
                     Proyectos reales, habilidades transferibles, impacto medible
                 </p>
             </div>
 
             <div class="grid md:grid-cols-2 gap-8">
                 <!-- Villalba -->
-                <div class="campus-card bg-gray-50 rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow" data-aos="fade-up">
-                    <div class="bg-rimas-blue text-white p-6">
-                        <h3 class="text-2xl font-sans font-bold" data-i18n="academia.villalba">Villalba</h3>
-                        <p class="text-xl mt-2" data-i18n="academia.villaalbaMission">Produciendo un Álbum</p>
+                <div class="group relative bg-rimas-black border border-white/10 rounded-2xl overflow-hidden hover:border-rimas-red/50 transition-all duration-300"
+                    data-aos="fade-up">
+                    <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                        <svg class="w-32 h-32 text-rimas-red" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z" />
+                        </svg>
                     </div>
-                    <div class="p-6">
-                        <div class="text-4xl font-bold text-rimas-blue mb-4" data-i18n="academia.villalbaParticipants">79 participantes</div>
-                        <p class="text-gray-700 mb-4" data-i18n="academia.villalbaDesc">
-                            Creando música desde el sistema correccional, transformando vidas a través del arte y la expresión.
-                        </p>
-                        <div class="space-y-2 mb-6">
-                            <p class="text-sm" data-i18n="academia.villalbaHighlight"><span class="font-semibold">Destacado:</span> Bootcamp con Xander Zayas sobre disciplina y superación</p>
+                    <div class="p-8">
+                        <div class="flex justify-between items-start mb-6">
+                            <div>
+                                <h3 class="text-2xl font-display font-bold text-rimas-text-primary"
+                                    data-i18n="academia.villalba">
+                                    Villalba</h3>
+                                <p class="text-rimas-red font-medium" data-i18n="academia.villaalbaMission">Produciendo
+                                    un Álbum</p>
+                            </div>
+                            <span
+                                class="bg-rimas-red/10 text-rimas-red text-xs font-bold px-3 py-1 rounded-full border border-rimas-red/20">MUSIC</span>
                         </div>
-                        <div class="border-t pt-4">
-                            <p class="text-sm font-semibold text-gray-900 mb-2" data-i18n="academia.skillsLabel">Destrezas desarrolladas:</p>
+
+                        <div class="text-5xl font-display font-bold text-rimas-text-primary mb-4"
+                            data-i18n="academia.villalbaParticipants">79 <span
+                                class="text-lg text-rimas-text-secondary font-normal">participantes</span></div>
+                        <p class="text-rimas-text-secondary mb-6 leading-relaxed" data-i18n="academia.villalbaDesc">
+                            Creando música desde el sistema correccional, transformando vidas a través del arte y la
+                            expresión.
+                        </p>
+
+                        <div class="bg-white/5 p-4 rounded-lg mb-6 border-l-2 border-rimas-red">
+                            <p class="text-sm text-rimas-text-primary" data-i18n="academia.villalbaHighlight"><span
+                                    class="text-rimas-text-primary font-bold">Destacado:</span> Bootcamp con Xander
+                                Zayas sobre
+                                disciplina y superación</p>
+                        </div>
+
+                        <div class="border-t border-white/10 pt-6">
+                            <p class="text-xs font-bold text-rimas-text-secondary uppercase tracking-widest mb-3"
+                                data-i18n="academia.skillsLabel">Destrezas desarrolladas:</p>
                             <div class="flex flex-wrap gap-2">
-                                <span class="bg-gray-200 text-gray-800 px-3 py-1 rounded-full text-sm" data-i18n="academia.composicion">Composición</span>
-                                <span class="bg-gray-200 text-gray-800 px-3 py-1 rounded-full text-sm" data-i18n="academia.trabajoEquipo">Trabajo en equipo</span>
-                                <span class="bg-gray-200 text-gray-800 px-3 py-1 rounded-full text-sm" data-i18n="academia.expresionCreativa">Expresión creativa</span>
+                                <span
+                                    class="bg-white/5 text-rimas-text-primary px-3 py-1 rounded-full text-xs border border-white/10"
+                                    data-i18n="academia.composicion">Composición</span>
+                                <span
+                                    class="bg-white/5 text-rimas-text-primary px-3 py-1 rounded-full text-xs border border-white/10"
+                                    data-i18n="academia.trabajoEquipo">Trabajo en equipo</span>
+                                <span
+                                    class="bg-white/5 text-rimas-text-primary px-3 py-1 rounded-full text-xs border border-white/10"
+                                    data-i18n="academia.expresionCreativa">Expresión creativa</span>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Caras con Causa -->
-                <div class="campus-card bg-gray-50 rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow" data-aos="fade-up" data-aos-delay="100">
-                    <div class="bg-rimas-navy text-white p-6">
-                        <h3 class="text-2xl font-sans font-bold" data-i18n="academia.carasConCausa">Caras con Causa</h3>
-                        <p class="text-xl mt-2" data-i18n="academia.carasMission">Organizando su Evento</p>
+                <div class="group relative bg-rimas-black border border-white/10 rounded-2xl overflow-hidden hover:border-rimas-cyan/50 transition-all duration-300"
+                    data-aos="fade-up" data-aos-delay="100">
+                    <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                        <svg class="w-32 h-32 text-rimas-cyan" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z" />
+                        </svg>
                     </div>
-                    <div class="p-6">
-                        <div class="text-4xl font-bold text-rimas-navy mb-4" data-i18n="academia.carasParticipants">15 jóvenes</div>
-                        <p class="text-gray-700 mb-4" data-i18n="academia.carasDesc">
+                    <div class="p-8">
+                        <div class="flex justify-between items-start mb-6">
+                            <div>
+                                <h3 class="text-2xl font-display font-bold text-rimas-text-primary"
+                                    data-i18n="academia.carasConCausa">Caras con Causa</h3>
+                                <p class="text-rimas-cyan font-medium" data-i18n="academia.carasMission">Organizando su
+                                    Evento</p>
+                            </div>
+                            <span
+                                class="bg-rimas-cyan/10 text-rimas-cyan text-xs font-bold px-3 py-1 rounded-full border border-rimas-cyan/20">EVENTOS</span>
+                        </div>
+
+                        <div class="text-5xl font-display font-bold text-rimas-text-primary mb-4"
+                            data-i18n="academia.carasParticipants">15 <span
+                                class="text-lg text-rimas-text-secondary font-normal">jóvenes</span></div>
+                        <p class="text-rimas-text-secondary mb-6 leading-relaxed" data-i18n="academia.carasDesc">
                             Planificando su Welcome Back Party con autonomía total en la gestión del proyecto.
                         </p>
-                        <div class="space-y-2 mb-6">
-                            <p class="text-sm" data-i18n="academia.carasHighlight"><span class="font-semibold">Comités:</span> Fundraising, logística, promoción</p>
+
+                        <div class="bg-white/5 p-4 rounded-lg mb-6 border-l-2 border-rimas-cyan">
+                            <p class="text-sm text-rimas-text-primary" data-i18n="academia.carasHighlight"><span
+                                    class="text-rimas-text-primary font-bold">Comités:</span> Fundraising, logística,
+                                promoción</p>
                         </div>
-                        <div class="border-t pt-4">
-                            <p class="text-sm font-semibold text-gray-900 mb-2" data-i18n="academia.skillsLabel">Destrezas desarrolladas:</p>
+
+                        <div class="border-t border-white/10 pt-6">
+                            <p class="text-xs font-bold text-rimas-text-secondary uppercase tracking-widest mb-3"
+                                data-i18n="academia.skillsLabel">Destrezas desarrolladas:</p>
                             <div class="flex flex-wrap gap-2">
-                                <span class="bg-gray-200 text-gray-800 px-3 py-1 rounded-full text-sm" data-i18n="academia.gestionProyectos">Gestión de proyectos</span>
-                                <span class="bg-gray-200 text-gray-800 px-3 py-1 rounded-full text-sm" data-i18n="academia.presupuesto">Presupuesto</span>
-                                <span class="bg-gray-200 text-gray-800 px-3 py-1 rounded-full text-sm" data-i18n="academia.liderazgo">Liderazgo</span>
+                                <span
+                                    class="bg-white/5 text-rimas-text-primary px-3 py-1 rounded-full text-xs border border-white/10"
+                                    data-i18n="academia.gestionProyectos">Gestión de proyectos</span>
+                                <span
+                                    class="bg-white/5 text-rimas-text-primary px-3 py-1 rounded-full text-xs border border-white/10"
+                                    data-i18n="academia.presupuesto">Presupuesto</span>
+                                <span
+                                    class="bg-white/5 text-rimas-text-primary px-3 py-1 rounded-full text-xs border border-white/10"
+                                    data-i18n="academia.liderazgo">Liderazgo</span>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Llorens -->
-                <div class="campus-card bg-gray-50 rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow" data-aos="fade-up" data-aos-delay="200">
-                    <div class="bg-rimas-blue text-white p-6">
-                        <h3 class="text-2xl font-sans font-bold" data-i18n="academia.llorens">Llorens</h3>
-                        <p class="text-xl mt-2" data-i18n="academia.llorensMission">Documentando su Comunidad</p>
+                <div class="group relative bg-rimas-black border border-white/10 rounded-2xl overflow-hidden hover:border-rimas-cyan/50 transition-all duration-300"
+                    data-aos="fade-up" data-aos-delay="200">
+                    <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                        <svg class="w-32 h-32 text-rimas-cyan" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z" />
+                        </svg>
                     </div>
-                    <div class="p-6">
-                        <div class="text-4xl font-bold text-rimas-blue mb-4" data-i18n="academia.llorensParticipants">15 jóvenes</div>
-                        <p class="text-gray-700 mb-4" data-i18n="academia.llorensDesc">
-                            Creando un cortometraje sobre crecer en Llorens Torres, utilizando tecnología e IA en entretenimiento.
-                        </p>
-                        <div class="space-y-2 mb-6">
-                            <p class="text-sm" data-i18n="academia.llorensHighlight"><span class="font-semibold">Proyecto:</span> Cortometraje comunitario con tecnología de punta</p>
+                    <div class="p-8">
+                        <div class="flex justify-between items-start mb-6">
+                            <div>
+                                <h3 class="text-2xl font-display font-bold text-rimas-text-primary"
+                                    data-i18n="academia.llorens">
+                                    Llorens</h3>
+                                <p class="text-rimas-cyan font-medium" data-i18n="academia.llorensMission">Documentando
+                                    su Comunidad</p>
+                            </div>
+                            <span
+                                class="bg-rimas-cyan/10 text-rimas-cyan text-xs font-bold px-3 py-1 rounded-full border border-rimas-cyan/20">FILM</span>
                         </div>
-                        <div class="border-t pt-4">
-                            <p class="text-sm font-semibold text-gray-900 mb-2" data-i18n="academia.skillsLabel">Destrezas desarrolladas:</p>
+
+                        <div class="text-5xl font-display font-bold text-rimas-text-primary mb-4"
+                            data-i18n="academia.llorensParticipants">15 <span
+                                class="text-lg text-rimas-text-secondary font-normal">jóvenes</span></div>
+                        <p class="text-rimas-text-secondary mb-6 leading-relaxed" data-i18n="academia.llorensDesc">
+                            Creando un cortometraje sobre crecer en Llorens Torres, utilizando tecnología e IA en
+                            entretenimiento.
+                        </p>
+
+                        <div class="bg-white/5 p-4 rounded-lg mb-6 border-l-2 border-rimas-cyan">
+                            <p class="text-sm text-rimas-text-primary" data-i18n="academia.llorensHighlight"><span
+                                    class="text-rimas-text-primary font-bold">Proyecto:</span> Cortometraje comunitario
+                                con
+                                tecnología de punta</p>
+                        </div>
+
+                        <div class="border-t border-white/10 pt-6">
+                            <p class="text-xs font-bold text-rimas-text-secondary uppercase tracking-widest mb-3"
+                                data-i18n="academia.skillsLabel">Destrezas desarrolladas:</p>
                             <div class="flex flex-wrap gap-2">
-                                <span class="bg-gray-200 text-gray-800 px-3 py-1 rounded-full text-sm" data-i18n="academia.narrativaVisual">Narrativa visual</span>
-                                <span class="bg-gray-200 text-gray-800 px-3 py-1 rounded-full text-sm" data-i18n="academia.tecnologia">Tecnología</span>
-                                <span class="bg-gray-200 text-gray-800 px-3 py-1 rounded-full text-sm" data-i18n="academia.identidadCultural">Identidad cultural</span>
+                                <span
+                                    class="bg-white/5 text-rimas-text-primary px-3 py-1 rounded-full text-xs border border-white/10"
+                                    data-i18n="academia.narrativaVisual">Narrativa visual</span>
+                                <span
+                                    class="bg-white/5 text-rimas-text-primary px-3 py-1 rounded-full text-xs border border-white/10"
+                                    data-i18n="academia.tecnologia">Tecnología</span>
+                                <span
+                                    class="bg-white/5 text-rimas-text-primary px-3 py-1 rounded-full text-xs border border-white/10"
+                                    data-i18n="academia.identidadCultural">Identidad cultural</span>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Inés María Mendoza -->
-                <div class="campus-card bg-gray-50 rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow" data-aos="fade-up" data-aos-delay="300">
-                    <div class="bg-rimas-navy text-white p-6">
-                        <h3 class="text-2xl font-sans font-bold" data-i18n="academia.inesMaria">Inés María Mendoza</h3>
-                        <p class="text-xl mt-2" data-i18n="academia.inesMission">Pitch Final</p>
+                <div class="group relative bg-rimas-black border border-white/10 rounded-2xl overflow-hidden hover:border-rimas-red/50 transition-all duration-300"
+                    data-aos="fade-up" data-aos-delay="300">
+                    <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                        <svg class="w-32 h-32 text-rimas-red" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z" />
+                        </svg>
                     </div>
-                    <div class="p-6">
-                        <div class="text-4xl font-bold text-rimas-navy mb-4" data-i18n="academia.inesParticipants">21 jóvenes</div>
-                        <p class="text-gray-700 mb-4" data-i18n="academia.inesDesc">
+                    <div class="p-8">
+                        <div class="flex justify-between items-start mb-6">
+                            <div>
+                                <h3 class="text-2xl font-display font-bold text-rimas-text-primary"
+                                    data-i18n="academia.inesMaria">
+                                    Inés María Mendoza</h3>
+                                <p class="text-rimas-red font-medium" data-i18n="academia.inesMission">Pitch Final</p>
+                            </div>
+                            <span
+                                class="bg-rimas-red/10 text-rimas-red text-xs font-bold px-3 py-1 rounded-full border border-rimas-red/20">BUSINESS</span>
+                        </div>
+
+                        <div class="text-5xl font-display font-bold text-rimas-text-primary mb-4"
+                            data-i18n="academia.inesParticipants">21 <span
+                                class="text-lg text-rimas-text-secondary font-normal">jóvenes</span></div>
+                        <p class="text-rimas-text-secondary mb-6 leading-relaxed" data-i18n="academia.inesDesc">
                             Presentación ante panel evaluador sobre planificación de eventos de entretenimiento.
                         </p>
-                        <div class="space-y-2 mb-6">
-                            <p class="text-sm" data-i18n="academia.inesHighlight"><span class="font-semibold">Colaboración:</span> ConPRmetidos y programa Futuro ConPR</p>
+
+                        <div class="bg-white/5 p-4 rounded-lg mb-6 border-l-2 border-rimas-red">
+                            <p class="text-sm text-rimas-text-primary" data-i18n="academia.inesHighlight"><span
+                                    class="text-rimas-text-primary font-bold">Colaboración:</span> ConPRmetidos y
+                                programa Futuro
+                                ConPR</p>
                         </div>
-                        <div class="border-t pt-4">
-                            <p class="text-sm font-semibold text-gray-900 mb-2" data-i18n="academia.skillsLabel">Destrezas desarrolladas:</p>
+
+                        <div class="border-t border-white/10 pt-6">
+                            <p class="text-xs font-bold text-rimas-text-secondary uppercase tracking-widest mb-3"
+                                data-i18n="academia.skillsLabel">Destrezas desarrolladas:</p>
                             <div class="flex flex-wrap gap-2">
-                                <span class="bg-gray-200 text-gray-800 px-3 py-1 rounded-full text-sm" data-i18n="academia.presentacionEjecutiva">Presentación ejecutiva</span>
-                                <span class="bg-gray-200 text-gray-800 px-3 py-1 rounded-full text-sm" data-i18n="academia.planificacionEstrategica">Planificación estratégica</span>
-                                <span class="bg-gray-200 text-gray-800 px-3 py-1 rounded-full text-sm" data-i18n="academia.trabajoEquipo">Trabajo en equipo</span>
+                                <span
+                                    class="bg-white/5 text-rimas-text-primary px-3 py-1 rounded-full text-xs border border-white/10"
+                                    data-i18n="academia.presentacionEjecutiva">Presentación ejecutiva</span>
+                                <span
+                                    class="bg-white/5 text-rimas-text-primary px-3 py-1 rounded-full text-xs border border-white/10"
+                                    data-i18n="academia.planificacionEstrategica">Planificación estratégica</span>
+                                <span
+                                    class="bg-white/5 text-rimas-text-primary px-3 py-1 rounded-full text-xs border border-white/10"
+                                    data-i18n="academia.trabajoEquipo">Trabajo en equipo</span>
                             </div>
                         </div>
                     </div>
@@ -371,102 +920,171 @@
     </section>
 
     <!-- Destrezas Transferibles -->
-    <section id="destrezas" class="py-16 sm:py-20 bg-gray-900 text-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="destrezas" class="py-20 bg-rimas-black relative overflow-hidden">
+        <div
+            class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1516280440614-6697288d5d38?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center opacity-10 mix-blend-overlay">
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-3xl sm:text-4xl md:text-5xl font-sans font-bold mb-4" data-i18n="destrezas.title">
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-rimas-text-primary mb-4"
+                    data-i18n="destrezas.title">
                     Destrezas Transferibles
                 </h2>
-                <p class="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto" data-i18n="destrezas.subtitle">
-                    Lo que aprendes aquí, te sirve en cualquier lugar
+                <p class="text-lg sm:text-xl text-rimas-text-secondary max-w-3xl mx-auto"
+                    data-i18n="destrezas.subtitle">
+                    Más allá de la industria del entretenimiento
                 </p>
             </div>
 
-            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-                <div class="skill-card text-center p-6" data-aos="flip-left" data-aos-delay="100">
-                    <div class="w-16 h-16 bg-rimas-blue rounded-full mx-auto mb-4 flex items-center justify-center">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-rimas-dark/80 backdrop-blur-sm border border-white/10 p-8 rounded-2xl hover:bg-rimas-dark transition-all duration-300 group"
+                    data-aos="fade-up" data-aos-delay="100">
+                    <div
+                        class="w-16 h-16 bg-rimas-cyan/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <svg class="w-8 h-8 text-rimas-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
                         </svg>
                     </div>
-                    <h3 class="text-xl font-sans font-bold mb-2" data-i18n="destrezas.networking">Networking</h3>
-                    <p class="text-gray-300 text-sm" data-i18n="destrezas.networkingDesc">Aplicable en cualquier industria</p>
+                    <h3 class="text-xl font-display font-bold text-rimas-text-primary mb-3"
+                        data-i18n="destrezas.card1Title">
+                        Pensamiento Crítico</h3>
+                    <p class="text-rimas-text-secondary leading-relaxed" data-i18n="destrezas.card1Text">Resolución de
+                        problemas
+                        complejos en producción y logística.</p>
                 </div>
 
-                <div class="skill-card text-center p-6" data-aos="flip-left" data-aos-delay="200">
-                    <div class="w-16 h-16 bg-rimas-blue rounded-full mx-auto mb-4 flex items-center justify-center">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                <div class="bg-rimas-dark/80 backdrop-blur-sm border border-white/10 p-8 rounded-2xl hover:bg-rimas-dark transition-all duration-300 group"
+                    data-aos="fade-up" data-aos-delay="200">
+                    <div
+                        class="w-16 h-16 bg-rimas-red/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <svg class="w-8 h-8 text-rimas-red" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 119.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                         </svg>
                     </div>
-                    <h3 class="text-xl font-sans font-bold mb-2" data-i18n="destrezas.presupuesto">Presupuesto</h3>
-                    <p class="text-gray-300 text-sm" data-i18n="destrezas.presupuestoDesc">Finanzas personales y profesionales</p>
+                    <h3 class="text-xl font-display font-bold text-rimas-text-primary mb-3"
+                        data-i18n="destrezas.card2Title">
+                        Liderazgo</h3>
+                    <p class="text-rimas-text-secondary leading-relaxed" data-i18n="destrezas.card2Text">Gestión de
+                        equipos y toma
+                        de decisiones bajo presión.</p>
                 </div>
 
-                <div class="skill-card text-center p-6" data-aos="flip-left" data-aos-delay="300">
-                    <div class="w-16 h-16 bg-rimas-blue rounded-full mx-auto mb-4 flex items-center justify-center">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                <div class="bg-rimas-dark/80 backdrop-blur-sm border border-white/10 p-8 rounded-2xl hover:bg-rimas-dark transition-all duration-300 group"
+                    data-aos="fade-up" data-aos-delay="300">
+                    <div
+                        class="w-16 h-16 bg-rimas-cyan/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <svg class="w-8 h-8 text-rimas-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
                         </svg>
                     </div>
-                    <h3 class="text-xl font-sans font-bold mb-2" data-i18n="destrezas.branding">Branding Personal</h3>
-                    <p class="text-gray-300 text-sm" data-i18n="destrezas.brandingDesc">Desarrollo de carrera</p>
+                    <h3 class="text-xl font-display font-bold text-rimas-text-primary mb-3"
+                        data-i18n="destrezas.card3Title">
+                        Comunicación</h3>
+                    <p class="text-rimas-text-secondary leading-relaxed" data-i18n="destrezas.card3Text">Expresión
+                        efectiva de ideas
+                        y negociación.</p>
                 </div>
-
-                <div class="skill-card text-center p-6" data-aos="flip-left" data-aos-delay="400">
-                    <div class="w-16 h-16 bg-rimas-blue rounded-full mx-auto mb-4 flex items-center justify-center">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-sans font-bold mb-2" data-i18n="destrezas.eventos">Organización de Eventos</h3>
-                    <p class="text-gray-300 text-sm" data-i18n="destrezas.eventosDesc">Gestión de proyectos</p>
-                </div>
-            </div>
-
-            <div class="max-w-3xl mx-auto text-center" data-aos="fade-up">
-                <blockquote class="text-xl sm:text-2xl font-serif italic text-rimas-blue" data-i18n="destrezas.quote">
-                    "Un buen contable en la música es un buen contable en cualquier industria"
-                </blockquote>
             </div>
         </div>
     </section>
 
     <!-- Programa de Subvenciones -->
-    <section id="subvenciones" class="py-16 sm:py-20 bg-white">
+    <section id="subvenciones" class="py-20 bg-rimas-dark border-y border-white/5">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-3xl sm:text-4xl md:text-5xl font-sans font-bold text-rimas-navy mb-4" data-i18n="subvenciones.title">
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-rimas-text-primary mb-4"
+                    data-i18n="subvenciones.title">
                     Programa de Subvenciones
                 </h2>
+                <p class="text-lg sm:text-xl text-rimas-text-secondary max-w-3xl mx-auto"
+                    data-i18n="subvenciones.subtitle">
+                    Apoyando a organizaciones que transforman comunidades
+                </p>
             </div>
 
-            <div class="max-w-4xl mx-auto">
-                <div class="text-center mb-12" data-aos="zoom-in">
-                    <div class="text-5xl sm:text-6xl font-sans font-bold text-rimas-blue mb-4" data-i18n="subvenciones.amount">$25,000+</div>
-                    <p class="text-xl text-gray-700" data-i18n="subvenciones.amountDesc">Otorgados este trimestre</p>
-                </div>
+            <div class="bg-rimas-black border border-white/10 rounded-2xl overflow-hidden shadow-2xl"
+                data-aos="fade-up">
+                <div class="md:flex items-center">
+                    <div class="md:w-1/2 p-8 sm:p-12">
+                        <h3 class="text-2xl sm:text-3xl font-display font-bold text-rimas-text-primary mb-6"
+                            data-i18n="subvenciones.cardTitle">
+                            Becas Disponibles
+                        </h3>
+                        <ul class="space-y-6 mb-8">
+                            <li class="flex items-start">
+                                <div class="bg-rimas-red/20 p-2 rounded-lg mr-4 mt-1">
+                                    <svg class="w-6 h-6 text-rimas-red" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M13 10V3L4 14h7v7l9-11h-7z" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="text-rimas-text-primary font-bold text-lg"
+                                        data-i18n="subvenciones.atletas">Atletas
+                                    </h4>
+                                    <p class="text-rimas-text-secondary text-sm" data-i18n="subvenciones.atletasDesc">
+                                        Apoyo a
+                                        deportistas destacados</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="bg-rimas-cyan/20 p-2 rounded-lg mr-4 mt-1">
+                                    <svg class="w-6 h-6 text-rimas-cyan" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="text-rimas-text-primary font-bold text-lg"
+                                        data-i18n="subvenciones.musicos">Músicos
+                                    </h4>
+                                    <p class="text-rimas-text-secondary text-sm" data-i18n="subvenciones.musicosDesc">
+                                        Becas para
+                                        desarrollo musical</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="bg-purple-500/20 p-2 rounded-lg mr-4 mt-1">
+                                    <svg class="w-6 h-6 text-purple-400" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="text-rimas-text-primary font-bold text-lg"
+                                        data-i18n="subvenciones.artistas">Artistas
+                                    </h4>
+                                    <p class="text-rimas-text-secondary text-sm" data-i18n="subvenciones.artistasDesc">
+                                        Inversión en
+                                        talento creativo</p>
+                                </div>
+                            </li>
+                        </ul>
 
-                <div class="grid md:grid-cols-3 gap-6 mb-12">
-                    <div class="bg-gray-50 p-6 rounded-lg text-center" data-aos="fade-up" data-aos-delay="100">
-                        <div class="text-3xl font-bold text-rimas-blue mb-2" data-i18n="subvenciones.atletas">Atletas</div>
-                        <p class="text-gray-600" data-i18n="subvenciones.atletasDesc">Apoyo a deportistas destacados</p>
+                        <div class="mb-8 border-t border-white/10 pt-6">
+                            <h4 class="text-rimas-cyan font-bold mb-2 text-sm uppercase tracking-wider"
+                                data-i18n="subvenciones.processTitle">Proceso Transparente</h4>
+                            <p class="text-rimas-text-secondary text-sm" data-i18n="subvenciones.processDesc">Todas
+                                nuestras
+                                subvenciones siguen criterios claros de evaluación</p>
+                        </div>
+                        <a href="#contacto"
+                            class="inline-block bg-rimas-red text-rimas-text-primary px-8 py-3 rounded-full font-bold hover:bg-red-600 transition-all shadow-[0_0_15px_rgba(255,0,51,0.3)] hover:shadow-[0_0_25px_rgba(255,0,51,0.5)]"
+                            data-i18n="subvenciones.ctaButton">
+                            Solicitar Información
+                        </a>
                     </div>
-                    <div class="bg-gray-50 p-6 rounded-lg text-center" data-aos="fade-up" data-aos-delay="200">
-                        <div class="text-3xl font-bold text-rimas-red mb-2" data-i18n="subvenciones.musicos">Músicos</div>
-                        <p class="text-gray-600" data-i18n="subvenciones.musicosDesc">Becas para desarrollo musical</p>
-                    </div>
-                    <div class="bg-gray-50 p-6 rounded-lg text-center" data-aos="fade-up" data-aos-delay="300">
-                        <div class="text-3xl font-bold text-rimas-blue mb-2" data-i18n="subvenciones.artistas">Artistas</div>
-                        <p class="text-gray-600" data-i18n="subvenciones.artistasDesc">Inversión en talento creativo</p>
-                    </div>
-                </div>
-
-                <div class="bg-rimas-navy text-white p-8 sm:p-10 rounded-lg text-center" data-aos="fade-up">
-                    <h3 class="text-2xl font-sans font-bold mb-4" data-i18n="subvenciones.processTitle">Proceso Transparente y Basado en Mérito</h3>
-                    <p class="text-lg mb-6" data-i18n="subvenciones.processDesc">Todas nuestras subvenciones siguen criterios claros de evaluación</p>
-                    <div class="inline-block bg-rimas-blue text-white px-8 py-4 rounded-md font-bold text-lg" data-i18n="subvenciones.nextCall">
-                        Próxima convocatoria: Enero 2026
+                    <div class="md:w-1/2 bg-rimas-gray h-64 md:h-auto min-h-[300px] relative">
+                        <img src="assets/images/subvenciones_new.png" alt="Jóvenes beneficiados"
+                            class="absolute inset-0 w-full h-full object-cover opacity-80 mix-blend-overlay">
+                        <div class="absolute inset-0 bg-gradient-to-l from-rimas-black via-transparent to-transparent">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -474,148 +1092,137 @@
     </section>
 
     <!-- Alianzas Estratégicas -->
-    <section id="alianzas" class="py-16 sm:py-20 bg-gray-50">
+    <section id="alianzas" class="py-20 bg-rimas-black relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-3xl sm:text-4xl md:text-5xl font-sans font-bold text-rimas-navy mb-4" data-i18n="alianzas.title">
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-rimas-text-primary mb-4"
+                    data-i18n="alianzas.title">
                     Alianzas Estratégicas
                 </h2>
-                <p class="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto" data-i18n="alianzas.subtitle">
-                    Juntos logramos más
+                <p class="text-lg sm:text-xl text-rimas-text-secondary max-w-3xl mx-auto" data-i18n="alianzas.subtitle">
+                    Colaborando con los mejores para maximizar el impacto
                 </p>
             </div>
 
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="bg-white p-8 rounded-lg shadow-lg" data-aos="fade-up">
-                    <h3 class="text-2xl font-sans font-bold mb-3 text-rimas-blue" data-i18n="alianzas.wendys">Wendy's</h3>
-                    <p class="text-gray-700 mb-4" data-i18n="alianzas.wendysDesc">
-                        Campaña "El Talento de Aquí es Otra Cosa" - Recaudando fondos para becas universitarias 2026 en música, arte y deportes.
-                    </p>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 items-center opacity-70">
+                <!-- Featured Partners -->
+                <div class="p-6 bg-white/5 rounded-xl border border-white/5 hover:border-white/20 hover:bg-white/10 transition-all duration-300 flex items-center justify-center h-32"
+                    data-aos="fade-up" data-aos-delay="50">
+                    <span class="text-xl font-bold text-rimas-text-secondary" data-i18n="alianzas.wendys">Wendy's</span>
+                </div>
+                <div class="p-6 bg-white/5 rounded-xl border border-white/5 hover:border-white/20 hover:bg-white/10 transition-all duration-300 flex items-center justify-center h-32"
+                    data-aos="fade-up" data-aos-delay="100">
+                    <span class="text-xl font-bold text-rimas-text-secondary" data-i18n="alianzas.eladio">Eladio
+                        Carrión</span>
+                </div>
+                <div class="p-6 bg-white/5 rounded-xl border border-white/5 hover:border-white/20 hover:bg-white/10 transition-all duration-300 flex items-center justify-center h-32"
+                    data-aos="fade-up" data-aos-delay="150">
+                    <span class="text-xl font-bold text-rimas-text-secondary" data-i18n="alianzas.boysGirls">Boys &
+                        Girls
+                        Club</span>
+                </div>
+                <div class="p-6 bg-white/5 rounded-xl border border-white/5 hover:border-white/20 hover:bg-white/10 transition-all duration-300 flex items-center justify-center h-32"
+                    data-aos="fade-up" data-aos-delay="200">
+                    <span class="text-xl font-bold text-rimas-text-secondary" data-i18n="alianzas.dcr">DCR</span>
                 </div>
 
-                <div class="bg-white p-8 rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="100">
-                    <h3 class="text-2xl font-sans font-bold mb-3 text-rimas-red" data-i18n="alianzas.eladio">Eladio Carrión</h3>
-                    <p class="text-gray-700 mb-4" data-i18n="alianzas.eladioDesc">
-                        Programa Therapy Dogs y apoyo continuo a nuestros jóvenes participantes.
-                    </p>
+                <!-- Impact Partners -->
+                <div class="p-6 bg-white/5 rounded-xl border border-white/5 hover:border-white/20 hover:bg-white/10 transition-all duration-300 flex items-center justify-center h-32"
+                    data-aos="fade-up" data-aos-delay="250">
+                    <span class="text-xl font-bold text-rimas-text-secondary" data-i18n="alianzas.partner1">Rimas
+                        Entertainment</span>
                 </div>
-
-                <div class="bg-white p-8 rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="200">
-                    <h3 class="text-2xl font-sans font-bold mb-3 text-rimas-blue" data-i18n="alianzas.boysGirls">Boys & Girls Club</h3>
-                    <p class="text-gray-700 mb-4" data-i18n="alianzas.boysGirlsDesc">
-                        Red de 11 centros colaborando para ampliar nuestro alcance e impacto en comunidades.
-                    </p>
+                <div class="p-6 bg-white/5 rounded-xl border border-white/5 hover:border-white/20 hover:bg-white/10 transition-all duration-300 flex items-center justify-center h-32"
+                    data-aos="fade-up" data-aos-delay="300">
+                    <span class="text-xl font-bold text-rimas-text-secondary" data-i18n="alianzas.partner2">Caras con
+                        Causa</span>
                 </div>
-
-                <div class="bg-white p-8 rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="300">
-                    <h3 class="text-2xl font-sans font-bold mb-3 text-rimas-red" data-i18n="alianzas.dcr">DCR</h3>
-                    <p class="text-gray-700 mb-4" data-i18n="alianzas.dcrDesc">
-                        Departamento de Corrección y Rehabilitación - Transformando el sistema desde adentro.
-                    </p>
+                <div class="p-6 bg-white/5 rounded-xl border border-white/5 hover:border-white/20 hover:bg-white/10 transition-all duration-300 flex items-center justify-center h-32"
+                    data-aos="fade-up" data-aos-delay="350">
+                    <span class="text-xl font-bold text-rimas-text-secondary" data-i18n="alianzas.partner3">Xander
+                        Zayas</span>
                 </div>
-            </div>
-
-            <div class="mt-16" data-aos="fade-up">
-                <h3 class="text-2xl font-sans font-bold text-center mb-8" data-i18n="alianzas.impactTitle">Nuestro Impacto es Posible Gracias a:</h3>
-                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 text-center text-sm text-gray-600">
-                    <div data-i18n="alianzas.partner1">Rimas Entertainment</div>
-                    <div data-i18n="alianzas.partner2">Caras con Causa</div>
-                    <div data-i18n="alianzas.partner3">Xander Zayas</div>
-                    <div data-i18n="alianzas.partner4">ConPRmetidos</div>
-                    <div data-i18n="alianzas.partner5">Fundación Felisa Rincón de Gautier</div>
-                    <div data-i18n="alianzas.partner6">Juvenile Justice</div>
-                    <div data-i18n="alianzas.partner7">Universidad de Puerto Rico</div>
-                    <div data-i18n="alianzas.partner8">Junte de Plenerxs</div>
+                <div class="p-6 bg-white/5 rounded-xl border border-white/5 hover:border-white/20 hover:bg-white/10 transition-all duration-300 flex items-center justify-center h-32"
+                    data-aos="fade-up" data-aos-delay="400">
+                    <span class="text-xl font-bold text-rimas-text-secondary"
+                        data-i18n="alianzas.partner4">ConPRmetidos</span>
+                </div>
+                <div class="p-6 bg-white/5 rounded-xl border border-white/5 hover:border-white/20 hover:bg-white/10 transition-all duration-300 flex items-center justify-center h-32"
+                    data-aos="fade-up" data-aos-delay="450">
+                    <span class="text-xl font-bold text-rimas-text-secondary" data-i18n="alianzas.partner5">Fundación
+                        Felisa
+                        Rincón</span>
+                </div>
+                <div class="p-6 bg-white/5 rounded-xl border border-white/5 hover:border-white/20 hover:bg-white/10 transition-all duration-300 flex items-center justify-center h-32"
+                    data-aos="fade-up" data-aos-delay="500">
+                    <span class="text-xl font-bold text-rimas-text-secondary" data-i18n="alianzas.partner6">Juvenile
+                        Justice</span>
+                </div>
+                <div class="p-6 bg-white/5 rounded-xl border border-white/5 hover:border-white/20 hover:bg-white/10 transition-all duration-300 flex items-center justify-center h-32"
+                    data-aos="fade-up" data-aos-delay="550">
+                    <span class="text-xl font-bold text-rimas-text-secondary" data-i18n="alianzas.partner7">UPR</span>
+                </div>
+                <div class="p-6 bg-white/5 rounded-xl border border-white/5 hover:border-white/20 hover:bg-white/10 transition-all duration-300 flex items-center justify-center h-32"
+                    data-aos="fade-up" data-aos-delay="600">
+                    <span class="text-xl font-bold text-rimas-text-secondary" data-i18n="alianzas.partner8">Junte de
+                        Plenerxs</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Únete al Movimiento -->
-    <section id="movimiento" class="py-16 sm:py-20 bg-gray-50">
+
+
+    <!-- News Section -->
+    <section id="news" class="py-20 bg-rimas-dark border-t border-white/5">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12" data-aos="fade-up">
-                <h2 class="text-3xl sm:text-4xl md:text-5xl font-sans font-bold text-rimas-navy mb-4" data-i18n="movimiento.title">
-                    Únete al Movimiento
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-rimas-text-primary mb-4"
+                    data-i18n="news.title">
+                    Noticias Recientes
                 </h2>
-                <p class="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto" data-i18n="movimiento.subtitle">
-                    Hay múltiples maneras de ser parte del cambio
-                </p>
             </div>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-                <!-- Fundaciones Nacionales -->
-                <div class="bg-white border-l-4 border-rimas-blue p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow" data-aos="fade-up" data-aos-delay="100">
-                    <div class="flex items-start space-x-3">
-                        <div class="flex-shrink-0 w-10 h-10 bg-rimas-blue/10 rounded-lg flex items-center justify-center">
-                            <svg class="w-5 h-5 text-rimas-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                            </svg>
+            <div class="max-w-4xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                <div
+                    class="bg-rimas-black border border-white/10 rounded-2xl overflow-hidden hover:border-rimas-cyan/30 transition-all duration-300">
+                    <div class="p-8 sm:p-10">
+                        <div class="flex items-center justify-between mb-6">
+                            <span class="text-rimas-cyan font-bold text-sm tracking-widest uppercase"
+                                data-i18n="news.date">3 de Diciembre, 2025</span>
+                            <div class="flex space-x-2">
+                                <span class="w-3 h-3 rounded-full bg-rimas-red"></span>
+                                <span class="w-3 h-3 rounded-full bg-rimas-cyan"></span>
+                            </div>
                         </div>
-                        <div>
-                            <h3 class="text-lg font-sans font-bold text-rimas-navy mb-2" data-i18n="movimiento.nacionales">Fundaciones Nacionales</h3>
-                            <p class="text-gray-600 text-sm" data-i18n="movimiento.nacionalesDesc">Invierte en el único modelo probado de justicia juvenil en PR</p>
-                        </div>
-                    </div>
-                </div>
 
-                <!-- Empresas Locales -->
-                <div class="bg-white border-l-4 border-rimas-red p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow" data-aos="fade-up" data-aos-delay="200">
-                    <div class="flex items-start space-x-3">
-                        <div class="flex-shrink-0 w-10 h-10 bg-rimas-red/10 rounded-lg flex items-center justify-center">
-                            <svg class="w-5 h-5 text-rimas-red" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                            </svg>
-                        </div>
-                        <div>
-                            <h3 class="text-lg font-sans font-bold text-rimas-navy mb-2" data-i18n="movimiento.empresas">Empresas Locales</h3>
-                            <p class="text-gray-600 text-sm" data-i18n="movimiento.empresasDesc">Adopta un campus, transforma una comunidad</p>
-                        </div>
-                    </div>
-                </div>
+                        <h3 class="text-2xl sm:text-3xl font-display font-bold text-rimas-text-primary mb-6 leading-tight"
+                            data-i18n="news.articleTitle">
+                            Spotify se asocia con Good Bunny Foundation y Fundación Rimas
+                        </h3>
 
-                <!-- Profesionales -->
-                <div class="bg-white border-l-4 border-rimas-blue p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow" data-aos="fade-up" data-aos-delay="300">
-                    <div class="flex items-start space-x-3">
-                        <div class="flex-shrink-0 w-10 h-10 bg-rimas-blue/10 rounded-lg flex items-center justify-center">
-                            <svg class="w-5 h-5 text-rimas-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                            </svg>
+                        <div class="prose prose-invert max-w-none mb-8">
+                            <p class="text-rimas-text-primary text-lg leading-relaxed italic border-l-4 border-rimas-cyan pl-6 py-2 bg-white/5 rounded-r-lg"
+                                data-i18n="news.articleBody">
+                                "Además, como parte de nuestro compromiso continuo de apoyar a la próxima generación de
+                                músicos y profesionales de la industria, Spotify se asocia con Good Bunny Foundation y
+                                Fundación Rimas para lanzar The Mobile Academy, que traerá recursos musicales,
+                                capacitación y becas dedicadas a estudiantes en todo Puerto Rico."
+                            </p>
                         </div>
-                        <div>
-                            <h3 class="text-lg font-sans font-bold text-rimas-navy mb-2" data-i18n="movimiento.profesionales">Profesionales</h3>
-                            <p class="text-gray-600 text-sm" data-i18n="movimiento.profesionalesDesc">Comparte tu expertise, inspira futuros</p>
-                        </div>
-                    </div>
-                </div>
 
-                <!-- Alumni -->
-                <div class="bg-white border-l-4 border-rimas-red p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow" data-aos="fade-up" data-aos-delay="400">
-                    <div class="flex items-start space-x-3">
-                        <div class="flex-shrink-0 w-10 h-10 bg-rimas-red/10 rounded-lg flex items-center justify-center">
-                            <svg class="w-5 h-5 text-rimas-red" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
-                            </svg>
-                        </div>
-                        <div>
-                            <h3 class="text-lg font-sans font-bold text-rimas-navy mb-2" data-i18n="movimiento.alumni">Alumni</h3>
-                            <p class="text-gray-600 text-sm" data-i18n="movimiento.alumniDesc">Regresa como mentor, cierra el círculo</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Comunidad -->
-                <div class="bg-white border-l-4 border-rimas-blue p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow md:col-span-2 lg:col-span-1" data-aos="fade-up" data-aos-delay="500">
-                    <div class="flex items-start space-x-3">
-                        <div class="flex-shrink-0 w-10 h-10 bg-rimas-blue/10 rounded-lg flex items-center justify-center">
-                            <svg class="w-5 h-5 text-rimas-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                            </svg>
-                        </div>
-                        <div>
-                            <h3 class="text-lg font-sans font-bold text-rimas-navy mb-2" data-i18n="movimiento.comunidad">Comunidad</h3>
-                            <p class="text-gray-600 text-sm" data-i18n="movimiento.comunidadDesc">Propón el próximo campus - ¿dónde te necesitamos?</p>
+                        <div class="flex items-center justify-between pt-6 border-t border-white/10">
+                            <a href="https://newsroom.spotify.com/2025-12-03/wrapped-bad-bunny-top-artist-album/"
+                                target="_blank" rel="noopener noreferrer"
+                                class="inline-flex items-center text-rimas-text-primary font-bold hover:text-rimas-cyan transition-colors group">
+                                <span data-i18n="news.readMore">Leer artículo completo</span>
+                                <svg class="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform"
+                                    fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                </svg>
+                            </a>
+                            <span class="text-rimas-text-secondary text-sm">Spotify Newsroom</span>
                         </div>
                     </div>
                 </div>
@@ -624,122 +1231,153 @@
     </section>
 
     <!-- Próximos Hitos -->
-    <section id="hitos" class="py-16 sm:py-20 bg-white">
+    <section id="hitos" class="py-20 bg-rimas-black">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12" data-aos="fade-up">
-                <h2 class="text-3xl sm:text-4xl md:text-5xl font-sans font-bold text-rimas-navy mb-4" data-i18n="hitos.title">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-rimas-text-primary mb-4"
+                    data-i18n="hitos.title">
                     Próximos Hitos
                 </h2>
             </div>
 
             <div class="grid md:grid-cols-3 gap-8">
-                <!-- Enero 2026 -->
-                <div class="bg-gradient-to-br from-rimas-blue to-blue-600 text-white p-8 rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="100">
-                    <div class="flex items-center justify-center w-16 h-16 bg-white/20 rounded-full mb-6 mx-auto">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                        </svg>
+                <div class="bg-rimas-dark border border-white/10 p-8 rounded-2xl relative overflow-hidden group hover:border-rimas-cyan/50 transition-all duration-300"
+                    data-aos="fade-up" data-aos-delay="100">
+                    <div class="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
+                        <span class="text-6xl font-bold text-rimas-text-primary">01</span>
                     </div>
-                    <h3 class="text-2xl font-sans font-bold mb-3 text-center" data-i18n="hitos.enero">Enero 2026</h3>
-                    <p class="text-white/90 text-center" data-i18n="hitos.eneroDesc">Apertura Campus Caguas</p>
+                    <span
+                        class="inline-block px-3 py-1 bg-rimas-cyan/10 text-rimas-cyan text-xs font-bold rounded-full mb-4 border border-rimas-cyan/20">Q4
+                        2025</span>
+                    <h3 class="text-xl font-display font-bold text-rimas-text-primary mb-3"
+                        data-i18n="hitos.hito1Title">Lanzamiento
+                        Álbum Villalba</h3>
+                    <p class="text-rimas-text-secondary text-sm" data-i18n="hitos.hito1Text">Distribución digital y
+                        showcase en vivo
+                    </p>
                 </div>
 
-                <!-- Accountability & Transparencia -->
-                <div class="bg-gradient-to-br from-gray-700 to-gray-900 text-white p-8 rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="200">
-                    <div class="flex items-center justify-center w-16 h-16 bg-white/20 rounded-full mb-6 mx-auto">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                        </svg>
+                <div class="bg-rimas-dark border border-white/10 p-8 rounded-2xl relative overflow-hidden group hover:border-rimas-red/50 transition-all duration-300"
+                    data-aos="fade-up" data-aos-delay="200">
+                    <div class="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
+                        <span class="text-6xl font-bold text-rimas-text-primary">02</span>
                     </div>
-                    <h3 class="text-2xl font-sans font-bold mb-3 text-center" data-i18n="hitos.accountability">Accountability & Transparencia</h3>
-                    <p class="text-white/90 text-center text-sm" data-i18n="hitos.accountabilityDesc">Publicación trimestral de métricas: asistencia, retención, progreso académico, desarrollo de destrezas</p>
+                    <span
+                        class="inline-block px-3 py-1 bg-rimas-red/10 text-rimas-red text-xs font-bold rounded-full mb-4 border border-rimas-red/20">Q1
+                        2026</span>
+                    <h3 class="text-xl font-display font-bold text-rimas-text-primary mb-3"
+                        data-i18n="hitos.hito2Title">Expansión
+                        Programa Residencias</h3>
+                    <p class="text-rimas-text-secondary text-sm" data-i18n="hitos.hito2Text">5 nuevas becas para talento
+                        emergente
+                    </p>
                 </div>
 
-                <!-- Academia Móvil -->
-                <div class="bg-gradient-to-br from-rimas-red to-red-600 text-white p-8 rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="300">
-                    <div class="flex items-center justify-center w-16 h-16 bg-white/20 rounded-full mb-6 mx-auto">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                        </svg>
+                <div class="bg-rimas-dark border border-white/10 p-8 rounded-2xl relative overflow-hidden group hover:border-rimas-cyan/50 transition-all duration-300"
+                    data-aos="fade-up" data-aos-delay="300">
+                    <div class="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
+                        <span class="text-6xl font-bold text-rimas-text-primary">03</span>
                     </div>
-                    <h3 class="text-2xl font-sans font-bold mb-3 text-center" data-i18n="hitos.academia">Academia Móvil</h3>
-                    <p class="text-white/90 text-center" data-i18n="hitos.academiaDesc">Programas pop-up llevando el vagón estudio a comunidades nuevas</p>
+                    <span
+                        class="inline-block px-3 py-1 bg-rimas-cyan/10 text-rimas-cyan text-xs font-bold rounded-full mb-4 border border-rimas-cyan/20">Q2
+                        2026</span>
+                    <h3 class="text-xl font-display font-bold text-rimas-text-primary mb-3"
+                        data-i18n="hitos.hito3Title">Cumbre de
+                        Innovación Juvenil</h3>
+                    <p class="text-rimas-text-secondary text-sm" data-i18n="hitos.hito3Text">Evento masivo de networking
+                        y talleres
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer / Contacto -->
-    <footer id="contacto" class="bg-rimas-navy text-white py-16">
+    <!-- Footer -->
+    <footer class="bg-black text-rimas-text-primary py-12 border-t border-white/10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
-                <div>
-                    <div class="bg-white p-3 rounded-lg inline-block mb-4">
-                        <img src="assets/images/logo.png" alt="Fundación Rimas" class="h-10 w-auto">
-                    </div>
-                    <p class="text-gray-400 text-sm mb-4" data-i18n="footer.tagline">
-                        Transformando vidas a través del acompañamiento continuo desde 2018.
-                    </p>
-                    <p class="text-sm text-gray-400" data-i18n="footer.nonprofit">
-                        Organización 501(c)(3) sin fines de lucro
+            <div class="grid md:grid-cols-4 gap-8 mb-12">
+                <div class="col-span-1 md:col-span-1">
+                    <img src="assets/images/logo.png" alt="Fundación Rimas" class="h-12 mb-6 theme-logo">
+                    <p class="text-rimas-text-secondary text-sm leading-relaxed" data-i18n="footer.description">
+                        Transformando el futuro de la juventud puertorriqueña a través de la música, el deporte y la
+                        educación.
                     </p>
                 </div>
 
                 <div>
-                    <h4 class="text-lg font-sans font-bold mb-4" data-i18n="footer.accionesTitle">Llamadas a la Acción</h4>
-                    <ul class="space-y-3">
-                        <li><a href="https://donorbox.org/fundacion-rimas" class="text-gray-300 hover:text-rimas-blue transition-colors" data-i18n="footer.apoyaMision">Apoya nuestra misión</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-rimas-blue transition-colors" data-i18n="footer.solicitaBeca">Solicita una subvención</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-rimas-blue transition-colors" data-i18n="footer.conoceProgramas">Conoce nuestros programas</a></li>
+                    <h4 class="text-lg font-bold mb-6 text-rimas-text-primary" data-i18n="footer.links">Enlaces Rápidos
+                    </h4>
+                    <ul class="space-y-3 text-rimas-text-secondary text-sm">
+                        <li><a href="#diferenciador" class="hover:text-rimas-cyan transition-colors">Nuestro Modelo</a>
+                        </li>
+                        <li><a href="#academia" class="hover:text-rimas-cyan transition-colors">Academia</a></li>
+                        <li><a href="#subvenciones" class="hover:text-rimas-cyan transition-colors">Subvenciones</a>
+                        </li>
+                        <li><a href="#contacto" class="hover:text-rimas-cyan transition-colors">Contacto</a></li>
                     </ul>
                 </div>
 
                 <div>
-                    <h4 class="text-lg font-sans font-bold mb-4" data-i18n="footer.contactoTitle">Contacto</h4>
-                    <p class="text-gray-300 mb-2">
-                        <a href="mailto:info@fundacionrimas.org" class="hover:text-rimas-blue transition-colors" data-i18n="footer.contactoEmail">
-                            info@fundacionrimas.org
-                        </a>
-                    </p>
-                    <div class="flex space-x-4 mt-4">
-                        <a href="#" class="text-gray-400 hover:text-rimas-blue transition-colors" aria-label="Facebook">
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                    <h4 class="text-lg font-bold mb-6 text-rimas-text-primary" data-i18n="footer.contactoTitle">Contacto
+                    </h4>
+                    <ul class="space-y-3 text-rimas-text-secondary text-sm">
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 mr-3 text-rimas-red" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                             </svg>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-rimas-blue transition-colors" aria-label="Instagram">
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                            </svg>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-rimas-blue transition-colors" aria-label="Twitter">
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
+                            <span data-i18n="footer.contactoEmail">info@fundacionrimas.org</span>
+                        </li>
+                    </ul>
 
-                <div>
-                    <h4 class="text-lg font-sans font-bold mb-4" data-i18n="footer.newsletterTitle">Newsletter</h4>
-                    <p class="text-gray-400 text-sm mb-4" data-i18n="footer.newsletterDesc">Mantente al tanto de nuestro trabajo</p>
-                    <form class="flex flex-col space-y-2">
-                        <input type="email" placeholder="Tu email" class="px-4 py-2 rounded-md text-gray-900 focus:outline-none focus:ring-2 focus:ring-rimas-blue" aria-label="Email para newsletter" data-i18n="footer.emailPlaceholder">
-                        <button type="submit" class="bg-rimas-blue text-white px-4 py-2 rounded-md font-medium hover:bg-blue-600 transition-colors" data-i18n="footer.subscribe">
+                    <h4 class="text-lg font-bold mt-8 mb-4 text-rimas-text-primary" data-i18n="footer.newsletterTitle">
+                        Newsletter
+                    </h4>
+                    <p class="text-rimas-text-secondary text-sm mb-4" data-i18n="footer.newsletterDesc">Mantente al
+                        tanto de nuestro
+                        trabajo</p>
+
+                    <form id="footer-newsletter-form" class="flex flex-col gap-2">
+                        <input type="email" placeholder="Tu email"
+                            class="bg-white/10 border border-white/20 text-rimas-text-primary px-4 py-2 rounded-md focus:outline-none focus:border-rimas-cyan text-sm"
+                            data-i18n="footer.emailPlaceholder">
+                        <button type="submit"
+                            class="bg-rimas-blue text-rimas-text-primary px-4 py-2 rounded-md font-medium hover:bg-blue-600 transition-colors text-sm"
+                            data-i18n="footer.subscribe">
                             Suscribirse
                         </button>
                     </form>
                 </div>
             </div>
 
-            <div class="border-t border-gray-800 pt-8 text-center text-sm text-gray-400">
-                <p data-i18n="footer.copyright">© 2025 Fundación Rimas. Todos los derechos reservados. | 501(c)(3) Nonprofit Organization | Established 2018</p>
+            <div class="border-t border-gray-800 pt-8 text-center text-sm text-rimas-text-secondary">
+                <p data-i18n="footer.copyright">© 2025 Fundación Rimas. Todos los derechos reservados. | 501(c)(3)
+                    Nonprofit Organization | Established 2018</p>
             </div>
         </div>
     </footer>
 
+    <!-- Theme Toggle Button -->
+    <button id="theme-toggle-btn"
+        class="fixed bottom-8 left-8 bg-rimas-gray text-rimas-text-primary p-3 rounded-full shadow-lg transition-all hover:bg-rimas-dark z-40 border border-white/10"
+        aria-label="Toggle theme">
+        <!-- Sun Icon -->
+        <svg id="sun-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+        </svg>
+        <!-- Moon Icon -->
+        <svg id="moon-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+        </svg>
+    </button>
+
     <!-- Scroll to Top Button -->
-    <button id="scroll-top" class="fixed bottom-8 right-8 bg-rimas-blue text-white p-3 rounded-full shadow-lg opacity-0 invisible transition-all hover:bg-blue-600 z-40" aria-label="Volver arriba" data-i18n="ui.scrollTop">
+    <button id="scroll-top"
+        class="fixed bottom-8 right-8 bg-rimas-blue text-rimas-text-primary p-3 rounded-full shadow-lg opacity-0 invisible transition-all hover:bg-blue-600 z-40"
+        aria-label="Volver arriba" data-i18n="ui.scrollTop">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
         </svg>
@@ -754,4 +1392,5 @@
     <!-- Custom JavaScript -->
     <script src="script.js"></script>
 </body>
+
 </html>

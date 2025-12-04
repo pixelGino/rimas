@@ -1,7 +1,7 @@
 // Fundación Rimas Landing Page - JavaScript
 
 // Initialize AOS (Animate On Scroll)
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     AOS.init({
         duration: 800,
         easing: 'ease-in-out',
@@ -9,6 +9,12 @@ document.addEventListener('DOMContentLoaded', function() {
         offset: 100,
         delay: 0
     });
+
+    // Initialize Music Player
+    initMusicPlayer();
+
+    // Initialize Dashboard Animations
+    initDashboardAnimations();
 });
 
 // Mobile Menu Toggle
@@ -16,7 +22,7 @@ const mobileMenuBtn = document.getElementById('mobile-menu-btn');
 const mobileMenu = document.getElementById('mobile-menu');
 
 if (mobileMenuBtn && mobileMenu) {
-    mobileMenuBtn.addEventListener('click', function() {
+    mobileMenuBtn.addEventListener('click', function () {
         const isExpanded = mobileMenuBtn.getAttribute('aria-expanded') === 'true';
         mobileMenuBtn.setAttribute('aria-expanded', !isExpanded);
         mobileMenu.classList.toggle('hidden');
@@ -26,7 +32,7 @@ if (mobileMenuBtn && mobileMenu) {
     // Close mobile menu when clicking on a link
     const mobileMenuLinks = mobileMenu.querySelectorAll('a');
     mobileMenuLinks.forEach(link => {
-        link.addEventListener('click', function() {
+        link.addEventListener('click', function () {
             mobileMenu.classList.add('hidden');
             mobileMenu.classList.remove('active');
             mobileMenuBtn.setAttribute('aria-expanded', 'false');
@@ -34,11 +40,136 @@ if (mobileMenuBtn && mobileMenu) {
     });
 }
 
-// Mobile Language Toggle is handled in translations.js init() function
+// Music Player Logic
+function initMusicPlayer() {
+    const playerContainer = document.querySelector('#showcase');
+    if (!playerContainer) return;
+
+    const playBtn = playerContainer.querySelector('button.w-12'); // The big play button
+    const tracks = playerContainer.querySelectorAll('.track-item'); // Track list items
+    const progressBar = playerContainer.querySelector('.bg-rimas-red.h-full'); // Progress bar
+    const playIcon = '<svg class="w-5 h-5 ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>';
+    const pauseIcon = '<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/></svg>';
+
+    let isPlaying = false;
+    let currentProgress = 33; // Initial progress
+    let progressInterval;
+
+    // Toggle Play/Pause
+    if (playBtn) {
+        playBtn.addEventListener('click', () => {
+            isPlaying = !isPlaying;
+            playBtn.innerHTML = isPlaying ? pauseIcon : playIcon;
+
+            // Toggle animations on active track
+            const activeTrack = playerContainer.querySelector('.active-track');
+            if (activeTrack) {
+                if (isPlaying) {
+                    activeTrack.classList.remove('paused');
+                    startProgress();
+                } else {
+                    activeTrack.classList.add('paused');
+                    stopProgress();
+                }
+            }
+        });
+    }
+
+    // Track Selection
+    tracks.forEach(track => {
+        track.addEventListener('click', () => {
+            // Reset previous active track
+            tracks.forEach(t => {
+                t.classList.remove('active-track', 'bg-white/10', 'border-l-2', 'border-rimas-red');
+                t.classList.add('hover:bg-white/5', 'border-transparent', 'hover:border-white/20');
+                // Hide visualizer bars
+                const bars = t.querySelector('.space-x-1');
+                if (bars) bars.classList.add('hidden');
+            });
+
+            // Set new active track
+            track.classList.add('active-track', 'bg-white/10', 'border-l-2', 'border-rimas-red');
+            track.classList.remove('hover:bg-white/5', 'border-transparent', 'hover:border-white/20');
+
+            // Show visualizer bars
+            const bars = track.querySelector('.space-x-1');
+            if (bars) {
+                bars.classList.remove('hidden');
+                bars.classList.add('flex');
+            }
+
+            // If playing, ensure animation runs
+            if (isPlaying) {
+                track.classList.remove('paused');
+            } else {
+                track.classList.add('paused');
+            }
+        });
+    });
+
+    function startProgress() {
+        clearInterval(progressInterval);
+        progressInterval = setInterval(() => {
+            currentProgress += 0.1;
+            if (currentProgress >= 100) currentProgress = 0;
+            if (progressBar) progressBar.style.width = `${currentProgress}%`;
+        }, 100);
+    }
+
+    function stopProgress() {
+        clearInterval(progressInterval);
+    }
+}
+
+// Dashboard Animations
+function initDashboardAnimations() {
+    const dashboard = document.getElementById('dashboard');
+    if (!dashboard) return;
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Animate Circular Chart (Retention)
+                const circle = dashboard.querySelector('circle:nth-child(2)');
+                if (circle) {
+                    // 553 is circumference (2 * pi * 88)
+                    // 85% means offset should be 15% of 553 = 83
+                    circle.style.strokeDashoffset = '83';
+                }
+
+                // Animate Bar Chart (Growth)
+                const bars = dashboard.querySelectorAll('.bg-rimas-red, .bg-rimas-gray\\/50');
+                bars.forEach(bar => {
+                    // Trigger height transition by resetting and setting height
+                    // This assumes inline styles are set in HTML, which they are
+                    const targetHeight = bar.style.height;
+                    bar.style.height = '0';
+                    setTimeout(() => {
+                        bar.style.height = targetHeight;
+                    }, 100);
+                });
+
+                // Animate Area/Line Chart (Funds)
+                const fundBars = dashboard.querySelectorAll('.bg-rimas-cyan, .bg-rimas-cyan\\/70, .bg-rimas-cyan\\/40');
+                fundBars.forEach(bar => {
+                    const targetWidth = bar.style.width;
+                    bar.style.width = '0';
+                    setTimeout(() => {
+                        bar.style.width = targetWidth;
+                    }, 100);
+                });
+
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.3 });
+
+    observer.observe(dashboard);
+}
 
 // Smooth Scroll for Navigation Links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
+    anchor.addEventListener('click', function (e) {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
@@ -92,7 +223,7 @@ statElements.forEach(element => {
 const scrollTopBtn = document.getElementById('scroll-top');
 
 if (scrollTopBtn) {
-    window.addEventListener('scroll', function() {
+    window.addEventListener('scroll', function () {
         if (window.pageYOffset > 300) {
             scrollTopBtn.classList.add('visible');
         } else {
@@ -100,7 +231,7 @@ if (scrollTopBtn) {
         }
     });
 
-    scrollTopBtn.addEventListener('click', function() {
+    scrollTopBtn.addEventListener('click', function () {
         window.scrollTo({
             top: 0,
             behavior: 'smooth'
@@ -111,7 +242,7 @@ if (scrollTopBtn) {
 // Navigation Bar - Add shadow on scroll
 const navbar = document.querySelector('nav');
 
-window.addEventListener('scroll', function() {
+window.addEventListener('scroll', function () {
     if (window.pageYOffset > 50) {
         navbar.classList.add('scrolled');
     } else {
@@ -120,10 +251,11 @@ window.addEventListener('scroll', function() {
 });
 
 // Form Submission Handler (Newsletter)
-const newsletterForm = document.querySelector('footer form');
+// Form Submission Handler (Newsletter)
+const newsletterForms = document.querySelectorAll('#newsletter-form, #footer-newsletter-form');
 
-if (newsletterForm) {
-    newsletterForm.addEventListener('submit', function(e) {
+newsletterForms.forEach(form => {
+    form.addEventListener('submit', function (e) {
         e.preventDefault();
         const emailInput = this.querySelector('input[type="email"]');
         const email = emailInput.value;
@@ -137,7 +269,7 @@ if (newsletterForm) {
             showNotification('ui.invalidEmail', 'error');
         }
     });
-}
+});
 
 // Email Validation Function
 function validateEmail(email) {
@@ -161,11 +293,10 @@ function showNotification(messageKey, type = 'info') {
 
     // Create notification element
     const notification = document.createElement('div');
-    notification.className = `notification fixed top-20 right-4 z-50 px-6 py-4 rounded-lg shadow-lg transition-all transform translate-x-0 ${
-        type === 'success' ? 'bg-green-500 text-white' :
+    notification.className = `notification fixed top-20 right-4 z-50 px-6 py-4 rounded-lg shadow-lg transition-all transform translate-x-0 ${type === 'success' ? 'bg-green-500 text-white' :
         type === 'error' ? 'bg-red-500 text-white' :
-        'bg-blue-500 text-white'
-    }`;
+            'bg-blue-500 text-white'
+        }`;
     notification.textContent = message;
     notification.setAttribute('role', 'alert');
 
@@ -212,9 +343,9 @@ const heroContent = document.querySelector('#hero .text-center');
 
 let ticking = false;
 
-window.addEventListener('scroll', function() {
+window.addEventListener('scroll', function () {
     if (!ticking) {
-        window.requestAnimationFrame(function() {
+        window.requestAnimationFrame(function () {
             if (heroParallaxBg && heroSection) {
                 const scrolled = window.pageYOffset;
                 const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
@@ -244,7 +375,7 @@ window.addEventListener('scroll', function() {
 const sections = document.querySelectorAll('section[id]');
 const navLinks = document.querySelectorAll('nav a[href^="#"]');
 
-window.addEventListener('scroll', function() {
+window.addEventListener('scroll', function () {
     let current = '';
 
     sections.forEach(section => {
@@ -256,9 +387,9 @@ window.addEventListener('scroll', function() {
     });
 
     navLinks.forEach(link => {
-        link.classList.remove('text-rimas-blue', 'font-bold');
+        link.classList.remove('text-rimas-cyan', 'font-bold'); // Updated color
         if (link.getAttribute('href') === `#${current}`) {
-            link.classList.add('text-rimas-blue', 'font-bold');
+            link.classList.add('text-rimas-cyan', 'font-bold'); // Updated color
         }
     });
 });
@@ -267,7 +398,7 @@ window.addEventListener('scroll', function() {
 const campusCards = document.querySelectorAll('.campus-card');
 
 campusCards.forEach(card => {
-    card.addEventListener('mousemove', function(e) {
+    card.addEventListener('mousemove', function (e) {
         const rect = card.getBoundingClientRect();
         const x = e.clientX - rect.left;
         const y = e.clientY - rect.top;
@@ -281,7 +412,7 @@ campusCards.forEach(card => {
         card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px)`;
     });
 
-    card.addEventListener('mouseleave', function() {
+    card.addEventListener('mouseleave', function () {
         card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0)';
     });
 });
@@ -289,9 +420,9 @@ campusCards.forEach(card => {
 // Performance: Debounce Function
 function debounce(func, wait = 20, immediate = true) {
     let timeout;
-    return function() {
+    return function () {
         const context = this, args = arguments;
-        const later = function() {
+        const later = function () {
             timeout = null;
             if (!immediate) func.apply(context, args);
         };
@@ -303,14 +434,14 @@ function debounce(func, wait = 20, immediate = true) {
 }
 
 // Optimize scroll events with debounce
-const optimizedScroll = debounce(function() {
+const optimizedScroll = debounce(function () {
     // Scroll-based operations here
 });
 
 window.addEventListener('scroll', optimizedScroll);
 
 // Keyboard Navigation Enhancement
-document.addEventListener('keydown', function(e) {
+document.addEventListener('keydown', function (e) {
     // Press 'T' to scroll to top
     if (e.key === 't' || e.key === 'T') {
         if (document.activeElement.tagName !== 'INPUT' && document.activeElement.tagName !== 'TEXTAREA') {
@@ -324,7 +455,7 @@ document.addEventListener('keydown', function(e) {
 
 // Track Outbound Links (Analytics placeholder)
 document.querySelectorAll('a[href^="http"]').forEach(link => {
-    link.addEventListener('click', function(e) {
+    link.addEventListener('click', function (e) {
         const url = this.href;
         console.log('Outbound link clicked:', url);
         // Add analytics tracking here if needed
@@ -339,7 +470,7 @@ function trapFocus(element) {
     const firstFocusable = focusableElements[0];
     const lastFocusable = focusableElements[focusableElements.length - 1];
 
-    element.addEventListener('keydown', function(e) {
+    element.addEventListener('keydown', function (e) {
         if (e.key === 'Tab') {
             if (e.shiftKey) {
                 if (document.activeElement === firstFocusable) {
@@ -358,8 +489,8 @@ function trapFocus(element) {
 
 // Apply focus trap when mobile menu is open
 if (mobileMenu) {
-    const observer = new MutationObserver(function(mutations) {
-        mutations.forEach(function(mutation) {
+    const observer = new MutationObserver(function (mutations) {
+        mutations.forEach(function (mutation) {
             if (!mobileMenu.classList.contains('hidden')) {
                 trapFocus(mobileMenu);
             }
@@ -417,7 +548,7 @@ if (prefersReducedMotion) {
 }
 
 // Page Load Performance Tracking
-window.addEventListener('load', function() {
+window.addEventListener('load', function () {
     if (window.performance) {
         const perfData = window.performance.timing;
         const pageLoadTime = perfData.loadEventEnd - perfData.navigationStart;
@@ -425,19 +556,11 @@ window.addEventListener('load', function() {
     }
 });
 
-// Service Worker Registration (Progressive Web App - Optional)
-if ('serviceWorker' in navigator) {
-    // Uncomment to enable PWA features
-    // navigator.serviceWorker.register('/sw.js')
-    //     .then(reg => console.log('Service Worker registered:', reg))
-    //     .catch(err => console.log('Service Worker registration failed:', err));
-}
-
 // Easter Egg: Konami Code
 let konamiCode = [];
 const konamiPattern = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
 
-document.addEventListener('keydown', function(e) {
+document.addEventListener('keydown', function (e) {
     konamiCode.push(e.key);
     konamiCode = konamiCode.slice(-10);
 
@@ -448,13 +571,64 @@ document.addEventListener('keydown', function(e) {
 });
 
 // Console message for developers
-console.log('%c¡Hola desarrollador!', 'color: #FF0000; font-size: 20px; font-weight: bold;');
-console.log('%c¿Interesado en contribuir a la misión de Fundación Rimas?', 'color: #000; font-size: 14px;');
-console.log('%cContáctanos: info@fundacionrimas.org', 'color: #FF0000; font-size: 14px;');
+console.log('%c¡Hola desarrollador!', 'color: #FF0033; font-size: 20px; font-weight: bold;');
+console.log('%c¿Interesado en contribuir a la misión de Fundación Rimas?', 'color: #e5e7eb; font-size: 14px;');
+console.log('%cContáctanos: info@fundacionrimas.org', 'color: #FF0033; font-size: 14px;');
+
+// Theme Manager
+const ThemeManager = {
+    init() {
+        this.themeToggleBtn = document.getElementById('theme-toggle-btn');
+        this.sunIcon = document.getElementById('sun-icon');
+        this.moonIcon = document.getElementById('moon-icon');
+
+        // Check saved preference or system preference
+        const savedTheme = localStorage.getItem('theme');
+        const systemPrefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+
+        if (savedTheme === 'light' || (!savedTheme && systemPrefersLight)) {
+            this.setTheme('light');
+        } else {
+            this.setTheme('dark');
+        }
+
+        if (this.themeToggleBtn) {
+            this.themeToggleBtn.addEventListener('click', () => this.toggleTheme());
+        }
+    },
+
+    setTheme(theme) {
+        if (theme === 'light') {
+            document.body.classList.add('light-mode');
+            if (this.sunIcon) this.sunIcon.classList.remove('hidden');
+            if (this.moonIcon) this.moonIcon.classList.add('hidden');
+            localStorage.setItem('theme', 'light');
+        } else {
+            document.body.classList.remove('light-mode');
+            if (this.sunIcon) this.sunIcon.classList.add('hidden');
+            if (this.moonIcon) this.moonIcon.classList.remove('hidden');
+            localStorage.setItem('theme', 'dark');
+        }
+    },
+
+    toggleTheme() {
+        if (document.body.classList.contains('light-mode')) {
+            this.setTheme('dark');
+        } else {
+            this.setTheme('light');
+        }
+    }
+};
+
+// Initialize Theme Manager
+document.addEventListener('DOMContentLoaded', function () {
+    ThemeManager.init();
+});
 
 // Export functions for potential use in other scripts
 window.FundacionRimas = {
     showNotification,
     sharePage,
-    printPage
+    printPage,
+    ThemeManager
 };
